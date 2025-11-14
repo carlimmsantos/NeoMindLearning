@@ -1,10 +1,11 @@
 import logging
+import os
 from pathlib import Path
 from typing import Dict, Any
 
 import numpy as np
 import pandas as pd
-
+import re
 
 logger = logging.getLogger(__name__)
 
@@ -106,7 +107,9 @@ class DataProcessor:
         """
         Load customer comment dataset.
         """
-        raise NotImplementedError("You need to implement this method to load your dataset.")
+        df = pd.read_csv(filename, encoding="latin-1")
+        df = self._clean_comments_data(df)
+        return df
     
     def _clean_comments_data(self, df: pd.DataFrame) -> pd.DataFrame:
         """
@@ -125,7 +128,150 @@ class DataProcessor:
         Returns:
             pd.DataFrame: Cleaned DataFrame ready for analysis.
         """
-        raise NotImplementedError(
-            "You need to implement this method to clean your dataset."
-            "Use the sample data creation method as a reference for the expected format."
-        )
+
+        # Remove duplicates
+        df = df.drop_duplicates().reset_index(drop=True)
+
+        # Drop unnecessary columns
+        if "Customer name" in df.columns:
+            df = df.drop(columns=["Customer name"], axis=1)
+        
+        # Rename columns for consistency
+        df = df.rename(columns={
+            "Review Title": "title",
+            "Rating": "rating",
+            "Date": "date",
+            "Category": "category",
+            "Comments": "comment", 
+        })
+
+
+        # Clean text data
+        df['comment'] = df['comment'].str.strip().str.lower()
+
+        # Ensure numeric columns are properly formatted
+        df['rating'] = pd.to_numeric(df['rating'], errors='coerce')
+        df = df.dropna(subset=['rating'])
+
+        # Convert date columns to datetime format if present
+        if 'date' in df.columns:
+            df['date'] = pd.to_datetime(df['date'], errors='coerce')
+            df = df.dropna(subset=['date'])
+
+        return df
+    
+    def _clean_useful_column(self, df: pd.DataFrame, column_name: str = "useful") -> pd.DataFrame:
+        """
+        Clean the 'useful' column in the dataset.
+
+        Examples:
+            - "7 people found this helpful" -> 7
+            - "One person found this helpful" -> 1
+            - "" or Nan -> 0 
+     
+        """
+
+        if "useful" not in df.columns:
+            return df
+        
+        def extract_useful_count(value: str) -> int:
+            '''
+            Extract the number of people who found the comment useful.
+            '''
+
+            if pd.isna(value):
+                return 0
+            
+            value_str = str(value).lower().strip()
+
+            if not value_str:
+                return 0
+
+            value_str = re.sub(r'[Oo]ne\s+person.*', '1', value_str)
+
+            match = re.search(r'(\d+)', value_str)
+
+            return int(match.group(1)) if match else 0
+
+        df[column_name] = df[column_name].apply(extract_useful_count).astype(int)
+
+        return df
+    
+    def _clean_rating_column(self, df: pd.DataFrame, column_name: str = "rating" ) -> pd.DataFrame:
+        """
+        Clean the 'rating' column to ensure it contains numeric values only.
+
+        Examples:
+            - "4.0 out of 5 stars" -> 4.0
+            - "5.0 out of 5 stars" -> 5.0
+        """
+
+        if column_name not in df.columns:
+            return df
+        
+        def extract_rating(value: str) -> float:
+            '''
+            Extract numeric rating from string.
+            '''
+            if pd.isna(value):
+                return np.nan
+            
+            value_str = str(value).lower().strip()
+
+            match = re.search(r'(\d+(\.\d+)?)', value_str)
+            return float(match.group(1)) if match else np.nan
+        
+        df[column_name] = df[column_name].apply(extract_rating)
+
+        df[column_name] = df[column_name].fillna(0).astype(float)
+
+        return df
+
+    def _clean_date_column(self, df: pd.DataFrame, column_name: str = "date") -> pd.DataFrame:
+        """
+        Clean the 'date' column to ensure it is in datetime format.
+        """
+
+        if column_name not in df.columns:
+            return df
+        
+        def clean_date(value):
+            '''Convert date string to datetime or return NaT'''
+
+            if pd.isna(value):
+                return pd.NaT
+            
+            date_str = str(value).strip().lower()
+
+            if not date_str or date_str == 'nan':
+                return pd.NaT
+            
+            try:
+                pattern = r'on\s+(\d{1,2})\s+([A-Za-z]+)\s+(\d{4})'
+                match = re.search(pattern, date_str)
+
+                if match:
+                    day = int(match.group(1))
+                    month_str = match.group(2)
+                    year = int(match.group(3))
+                    
+
+                    date_obj = pd.to_datetime(
+                        f"{day} {month_str} {year}", 
+                        format="%d %B %Y"
+                    )
+                    return date_obj
+                else:
+                    return pd.NaT
+            
+            except Exception as e:
+                logger.warning(f"Error processing date '{date_str}': {e}")
+                return pd.NaT
+        
+        df[column_name] = df[column_name].apply(clean_date)
+
+        valid_dates = df[column_name].dropna()
+        if len(valid_dates) > 0:
+            logger.debug(f"Date range after cleaning: {valid_dates.min().date()} to {valid_dates.max().date()}")
+        
+        return df
