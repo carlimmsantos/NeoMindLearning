@@ -28,7 +28,7 @@ class TestDataProcessor:
         
         assert {"title", "category", "comment", "rating", "date"}.issubset(set(cleaned_data.columns))
         assert cleaned_data["date"].dtype == "datetime64[ns]"
-        assert cleaned_data["rating"].dtype == "int64"
+        assert cleaned_data["rating"].dtype == "float64"
     
     def test_get_data_summary(self, sample_comment_data: pd.DataFrame):
         """Test data summary generation."""

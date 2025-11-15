@@ -54,7 +54,7 @@ def sample_comment_data():
             "2023-01-01", "2023-01-02", "2023-01-03", "2023-01-04", "2023-01-05"
         ]),
         "Category": ["electronics", "home", "electronics", "service", "shipping"],
-        "Comment": [
+        "Comments": [
             "Great product! Highly recommend.",
             "Poor quality, not worth the money.",
             "Average product, does the job.",
