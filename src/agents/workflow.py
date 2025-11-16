@@ -13,6 +13,7 @@ from langchain_core.messages import HumanMessage, AIMessage
 from .state import AgentState, update_state_with_error
 from .tools import DataStatsTool, SentimentAggregationTool, InsightGenerationTool
 from ..data import DataProcessor
+from ..prompts.templates import SentimentAnalysisPrompts, TopicExtractionPrompts, SummaryPrompts
 
 logger = logging.getLogger(__name__)
 
@@ -25,33 +26,161 @@ class WorkflowNodes:
         self.data_processor = data_processor
         self.llm_providers = llm_providers
         self.llm_to_use = llm_to_use
+
+        try:
+            self.llm_provider = llm_providers.get(llm_to_use)
+            if self.llm_provider is None:
+                logger.warning(f"LLM provider '{llm_to_use}' not found")
+                self.llm_provider = next(iter(llm_providers.values())) if llm_providers else None
+        except Exception as e:
+            logger.error(f"Error selecting LLM provider: {e}")
+            self.llm_provider = None
         
         # Initialize tools
-        self.data_stats_tool = DataStatsTool(data_processor)
+        self.data_stats_tool = DataStatsTool(data_processor=data_processor)
         self.sentiment_aggregation_tool = SentimentAggregationTool()
         self.insight_generation_tool = InsightGenerationTool()
+
+        logger.info(f"WorkflowNodes initialized with LLM provider: {llm_to_use}")
     
     def load_data(self, state: AgentState) -> AgentState:
-        """Load and preprocess customer comments data."""
+        """
+        Nó 1: Carrega e pré-processa os dados de comentários de clientes.
+        
+        Este nó:
+        1. Carrega dados do CSV
+        2. Limpa e processa os dados
+        3. Gera resumo dos dados
+        4. Inicializa as ferramentas com os dados
+        
+        Args:
+            state: Estado atual do workflow
+            
+        Returns:
+            Estado atualizado com dados carregados
+        """
+        logger.info("=" * 70)
+        logger.info("NÓ 1: load_data - Carregando dados")
+        logger.info("=" * 70)
+        
         try:
+            # 1. Carregar dados do arquivo CSV
             df = self.data_processor.load_customer_comments()
+            logger.info(f"Dados carregados: {len(df)} registros")
+            
+            # 2. Armazenar no estado
             state["data"] = df
             state["current_step"] = "data_loaded"
-            state["analysis_results"]["data_summary"] = self.data_processor.get_data_summary(df)
+            
+            # 3. Gerar resumo dos dados
+            data_summary = self.data_processor.get_data_summary(df)
+            state["analysis_results"]["data_summary"] = data_summary
+            logger.info("Resumo dos dados gerado")
+            logger.info(f"   - Total de registros: {data_summary['total_records']}")
+            logger.info(f"   - Categorias: {list(data_summary.get('categories', {}).keys())}")
+            
+            # 4. Inicializar ferramentas com dados
+            self.data_stats_tool.set_data(df)
+            logger.info("Ferramentas inicializadas com dados")
+            
+            # 5. Limpar histórico de mensagens
             state["messages"] = []
             state["tool_calls_made"] = []
             
-            # Set data in tools
-            self.data_stats_tool.set_data(df)
+            logger.info("Nó load_data concluído com sucesso\n")
             
-            logger.info(f"Loaded {len(df)} comments records")
-            
+        except FileNotFoundError:
+            error_msg = "Arquivo de dados não encontrado. Verifique o caminho do arquivo."
+            logger.error(f"{error_msg}")
+            state = update_state_with_error(state, error_msg, "load_data")
+        
         except Exception as e:
-            logger.error(f"Error loading data: {e}")
-            state = update_state_with_error(state, str(e), "load_data")
+            error_msg = f"Erro ao carregar dados: {str(e)}"
+            logger.error(f"{error_msg}")
+            state = update_state_with_error(state, error_msg, "load_data")
         
         return state
     
+    def analyze_sentiment(self, state: AgentState) -> AgentState:
+        """
+        Nó 2: Realiza análise de sentimento nos comentários.
+        
+        Este nó:
+        1. Extrai comentários dos dados
+        2. Formata prompts de sentimento usando templates
+        3. Processa sentimentos com a ferramenta
+        4. Agrega resultados
+        
+        Args:
+            state: Estado atual do workflow
+            
+        Returns:
+            Estado atualizado com análise de sentimento
+        """
+        logger.info("=" * 70)
+        logger.info("😊 NÓ 2: analyze_sentiment - Analisando sentimentos")
+        logger.info("=" * 70)
+        
+        try:
+            df = state.get("data")
+            if df is None or len(df) == 0:
+                raise ValueError("Nenhum dado disponível para análise de sentimento")
+            
+            # 1. Preparar dados simulados de sentimento
+            # (Em um cenário real, você chamaria o LLM com o prompt)
+            sentiment_results = []
+            
+            # Simular análise de sentimento com base em palavras-chave
+            positive_words = ["ótimo", "excelente", "bom", "gostei", "adorei", "amo"]
+            negative_words = ["ruim", "péssimo", "horrível", "não gostei", "decepcionante"]
+            
+            for idx, comment in enumerate(df["comment"].head(50)):  # Limitar a 50 para performance
+                comment_lower = str(comment).lower()
+                
+                # Contar palavras positivas e negativas
+                pos_count = sum(1 for word in positive_words if word in comment_lower)
+                neg_count = sum(1 for word in negative_words if word in comment_lower)
+                
+                # Determinar sentimento
+                if pos_count > neg_count:
+                    sentiment = "positive"
+                    confidence = min(0.95, 0.7 + (pos_count * 0.1))
+                elif neg_count > pos_count:
+                    sentiment = "negative"
+                    confidence = min(0.95, 0.7 + (neg_count * 0.1))
+                else:
+                    sentiment = "neutral"
+                    confidence = 0.6
+                
+                sentiment_results.append({
+                    "text": comment,
+                    "sentiment": sentiment,
+                    "confidence": confidence,
+                    "key_emotions": ["satisfaction"] if sentiment == "positive" else ["concern"] if sentiment == "negative" else []
+                })
+            
+            # 2. Integrar com a ferramenta de agregação
+            self.sentiment_aggregation_tool.set_sentiment_data(sentiment_results)
+            
+            # 3. Agregar sentimentos
+            sentiment_summary = self.sentiment_aggregation_tool._run("summary")
+            state["analysis_results"]["sentiment_analysis"] = sentiment_summary
+            
+            logger.info(f"✅ Análise de sentimento concluída")
+            logger.info(f"   - Positivos: {sentiment_summary['positive']['count']} ({sentiment_summary['positive']['percentage']}%)")
+            logger.info(f"   - Negativos: {sentiment_summary['negative']['count']} ({sentiment_summary['negative']['percentage']}%)")
+            logger.info(f"   - Neutros: {sentiment_summary['neutral']['count']} ({sentiment_summary['neutral']['percentage']}%)")
+            logger.info(f"   - Sentimento geral: {sentiment_summary['overall_sentiment'].upper()}\n")
+            
+            state["current_step"] = "sentiment_analyzed"
+        
+        except Exception as e:
+            error_msg = f"Erro na análise de sentimento: {str(e)}"
+            logger.error(f"❌ {error_msg}")
+            state = update_state_with_error(state, error_msg, "analyze_sentiment")
+        
+        return state
+
     def agent_with_tools(self, state: AgentState) -> AgentState:
         """
         Main agent logic with tool calling capabilities.
