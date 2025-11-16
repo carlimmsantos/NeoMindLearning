@@ -194,7 +194,7 @@ class SentimentAggregationTool(BaseTool):
         if not self._sentiment_results:
             return {"error": "No sentiment data available"}
         
-        # Contar sentimentos
+
         positive_count = sum(1 for item in self._sentiment_results 
                             if item.get("sentiment") == "positive")
         negative_count = sum(1 for item in self._sentiment_results 
@@ -207,20 +207,18 @@ class SentimentAggregationTool(BaseTool):
         if total == 0:
             return {"error": "No valid sentiment data"}
         
-        # Calcular confiança média
+
         confidences = [item.get("confidence", 0) for item in self._sentiment_results]
         avg_confidence = sum(confidences) / len(confidences) if confidences else 0
         
-        # Determinar sentimento geral
+
         if positive_count > negative_count:
             overall = "positive"
         elif negative_count > positive_count:
             overall = "negative"
         else:
             overall = "neutral"
-        
-        # INTEGRAÇÃO COM PROMPT (SEGUINDO README)
-        # Formatar dados para o prompt template
+
         formatted_prompt = SentimentAnalysisPrompts.BASIC_SENTIMENT.format(
             feedback=f"Analyzed {total} comments with {positive_count} positive, "
                     f"{negative_count} negative, and {neutral_count} neutral sentiments"
@@ -297,7 +295,6 @@ class SentimentAggregationTool(BaseTool):
         if not self._sentiment_results:
             return {"error": "No sentiment data available"}
         
-        # Extrair palavras-chave de sentimentos
         positive_words = []
         negative_words = []
         
@@ -307,11 +304,9 @@ class SentimentAggregationTool(BaseTool):
             elif item.get("sentiment") == "negative" and "key_emotions" in item:
                 negative_words.extend(item.get("key_emotions", []))
         
-        # Contar frequência
         pos_counter = Counter(positive_words) if positive_words else Counter()
         neg_counter = Counter(negative_words) if negative_words else Counter()
         
-        # Determinar tendência usando summary
         sentiment_summary = self._aggregate_summary()
         positive_pct = sentiment_summary.get("positive", {}).get("percentage", 0)
         negative_pct = sentiment_summary.get("negative", {}).get("percentage", 0)
