@@ -166,7 +166,7 @@ class WorkflowNodes:
             sentiment_summary = self.sentiment_aggregation_tool._run("summary")
             state["analysis_results"]["sentiment_analysis"] = sentiment_summary
             
-            logger.info(f"✅ Análise de sentimento concluída")
+            logger.info(" Análise de sentimento concluída")
             logger.info(f"   - Positivos: {sentiment_summary['positive']['count']} ({sentiment_summary['positive']['percentage']}%)")
             logger.info(f"   - Negativos: {sentiment_summary['negative']['count']} ({sentiment_summary['negative']['percentage']}%)")
             logger.info(f"   - Neutros: {sentiment_summary['neutral']['count']} ({sentiment_summary['neutral']['percentage']}%)")
@@ -206,14 +206,13 @@ class WorkflowNodes:
             if current_step == "data_loaded":
                 # Create a prompt for data analysis
                 prompt = """You are a data analysis expert. You have access to customer comments data and several tools to analyze it.
+                Available tools:
+                - calculate_data_stats: Get statistical metrics about the data
+                - aggregate_sentiment: Aggregate sentiment analysis results  
+                - generate_insights: Generate business insights from analysis
 
-Available tools:
-- calculate_data_stats: Get statistical metrics about the data
-- aggregate_sentiment: Aggregate sentiment analysis results  
-- generate_insights: Generate business insights from analysis
-
-Start by getting basic statistics about the dataset, then proceed with sentiment analysis.
-The data is already loaded and ready for analysis."""
+                Start by getting basic statistics about the dataset, then proceed with sentiment analysis.
+                The data is already loaded and ready for analysis."""
                 
                 message = HumanMessage(content=prompt)
                 messages.append(message)
