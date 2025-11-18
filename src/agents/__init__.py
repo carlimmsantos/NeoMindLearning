@@ -1,49 +1,39 @@
 """
-AI Agents module for customer comment analysis.
+Agents module for the NeoMindLearning project.
 
-This module provides a complete LangChain-based agent system for analyzing
-customer feedback data using React Agent for automatic tool calling.
-
-Main Components:
-- DataAnalysisAgent: Main React Agent for analysis
-- Tools: LangChain tools for data analysis, sentiment aggregation, and insights
-- CustomerAnalysisReactAgent: Direct React Agent implementation
-
-Usage:
-    from src.agents import DataAnalysisAgent
-    from src.data import DataProcessor
-    from src.llm import OpenAIProvider, GeminiProvider
-    
-    # Initialize components
-    data_processor = DataProcessor()
-    llm_providers = {
-        "openai": OpenAIProvider(api_key="your-key"),
-        "gemini": GeminiProvider(api_key="your-key")
-    }
-    
-    # Create and run agent
-    agent = DataAnalysisAgent(llm_providers, data_processor)
-    results = agent.analyze()
+Exports the main agent and related classes.
 """
 
-from .core import DataAnalysisAgent
 from .tools import (
     DataStatsTool,
-    SentimentAggregationTool, 
+    SentimentAggregationTool,
     InsightGenerationTool,
     DataStatsInput,
     SentimentAggregationInput,
-    InsightGenerationInput
+    InsightGenerationInput,
 )
-from .react_agent import CustomerAnalysisReactAgent
+
+from .state import (
+    AgentState,
+    create_initial_state,
+    update_state_with_error,
+)
+
+from .workflow import WorkflowNodes
+
+from .core import DataAnalysisAgent
+
 
 __all__ = [
-    "DataAnalysisAgent",
-    "CustomerAnalysisReactAgent",
     "DataStatsTool",
     "SentimentAggregationTool",
     "InsightGenerationTool",
     "DataStatsInput",
-    "SentimentAggregationInput", 
-    "InsightGenerationInput"
+    "SentimentAggregationInput",
+    "InsightGenerationInput",
+    "AgentState",
+    "create_initial_state",
+    "update_state_with_error",
+    "WorkflowNodes",
+    "DataAnalysisAgent",
 ]

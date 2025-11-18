@@ -3,6 +3,7 @@ import os
 from pathlib import Path
 from typing import Dict, Any
 
+
 import numpy as np
 import pandas as pd
 import re
@@ -90,16 +91,39 @@ class DataProcessor:
         """
         Generate a summary of the dataset.
         """
-        summary = {
-            "total_records": len(df),
-            "categories": df['category'].value_counts().to_dict() if 'category' in df.columns else {},
-            "rating_distribution": df['rating'].value_counts().to_dict() if 'rating' in df.columns else {},
-            "average_rating": df['rating'].mean() if 'rating' in df.columns else None,
-            "date_range": {
-                "start": df['date'].min().isoformat() if 'date' in df.columns else None,
-                "end": df['date'].max().isoformat() if 'date' in df.columns else None
-            } if 'date' in df.columns else None
+
+        df_normalized = df.copy()
+        df_normalized.columns = df_normalized.columns.str.lower().str.replace(" ", "_")
+        
+        comment_col = 'comments' if 'comments' in df_normalized.columns else 'comment'
+        comment_lengths = df_normalized[comment_col].astype(str).str.len()
+        
+        rating_col = None
+        if 'rating' in df_normalized.columns:
+            rating_col = df_normalized['rating']
+            if rating_col.dtype == 'object':
+                rating_col = rating_col.str.extract(r'(\d+\.?\d*)')[0].astype(float)
+
+        comment_stats = {
+            "average": round(comment_lengths.mean(), 2),
+            "median": round(comment_lengths.median(), 2),
+            "min": int(comment_lengths.min()),
+            "max": int(comment_lengths.max())
         }
+
+        summary = {
+            "total_records": len(df_normalized),
+            "categories": df_normalized['category'].value_counts().to_dict() if 'category' in df_normalized.columns else {},
+            "rating_distribution": rating_col.value_counts().to_dict() if rating_col is not None else {},
+
+            "average_rating": float(rating_col.mean()) if rating_col is not None else None,
+            "comment_length_stats": comment_stats,
+            "date_range": {
+                "start": df_normalized['date'].min().isoformat() if 'date' in df_normalized.columns else None,
+                "end": df_normalized['date'].max().isoformat() if 'date' in df_normalized.columns else None
+            } if 'date' in df_normalized.columns else None
+        }
+    
         
         return summary
 
@@ -107,7 +131,13 @@ class DataProcessor:
         """
         Load customer comment dataset.
         """
-        df = pd.read_csv(filename, encoding="latin-1")
+        file_path = self._data_path / filename
+        if not file_path.exists():
+            logger.error(f"File not found: {file_path}")
+
+            raise FileNotFoundError(f"File not found at {file_path}")
+        
+        df = pd.read_csv(file_path, encoding="latin-1")
         df = self._clean_comments_data(df)
         return df
     
@@ -145,18 +175,15 @@ class DataProcessor:
             "Comments": "comment", 
         })
 
+        df = self._clean_rating_column(df, column_name="rating")
+        df = self._clean_date_column(df, column_name="date")
+        df = self._clean_useful_column(df, column_name="useful")
 
         # Clean text data
         df['comment'] = df['comment'].str.strip().str.lower()
-
-        # Ensure numeric columns are properly formatted
-        df['rating'] = pd.to_numeric(df['rating'], errors='coerce')
-        df = df.dropna(subset=['rating'])
-
-        # Convert date columns to datetime format if present
-        if 'date' in df.columns:
-            df['date'] = pd.to_datetime(df['date'], errors='coerce')
-            df = df.dropna(subset=['date'])
+        
+        # Lidar com valores ausentes após a limpeza
+        df = df.dropna(subset=['rating', 'date', 'comment'])
 
         return df
     

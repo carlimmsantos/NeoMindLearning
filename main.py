@@ -2,9 +2,16 @@ import argparse
 import logging
 import json
 import os
+import sys
+import io
 import time
 from pathlib import Path
 from typing import Dict, Any, Optional
+
+if sys.platform == "win32":
+    sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8')
+    sys.stderr = io.TextIOWrapper(sys.stderr.buffer, encoding='utf-8')
+
 
 from src.config.settings import LLMConfig
 from src.data.processor import DataProcessor
@@ -17,9 +24,10 @@ logging.basicConfig(
     level=logging.INFO,
     format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
     handlers=[
-        logging.FileHandler('logs/analysis.log'),
-        logging.StreamHandler()
-    ]
+        logging.FileHandler('logs/analysis.log', encoding='utf-8'),
+        logging.StreamHandler(sys.stdout) 
+    ],
+    encoding='utf-8'
 )
 logger = logging.getLogger(__name__)
 
@@ -37,6 +45,18 @@ class AnalysisRunner:
     def _load_config(self) -> LLMConfig:
         """Load configuration from environment variables."""
         try:
+            temperature = float(os.getenv("TEMPERATURE", "0.7"))
+            
+            if not (0 <= temperature <= 2):
+                logger.warning(f"⚠️  Temperature {temperature} out of range [0, 2], using 0.7")
+                temperature = 0.7
+            
+            max_tokens = int(os.getenv("MAX_TOKENS", "1000"))
+            
+            if max_tokens < 100 or max_tokens > 4096:
+                logger.warning(f"⚠️  Max tokens {max_tokens} out of range, using 1000")
+                max_tokens = 1000
+                
             return LLMConfig(
                 openai_api_key=os.getenv("OPENAI_API_KEY", ""),
                 google_api_key=os.getenv("GOOGLE_API_KEY", ""),
@@ -98,8 +118,14 @@ class AnalysisRunner:
         logger.info("🚀 Starting customer feedback analysis workflow...")
         
         try:
+            
+            if use_sample_data:
+                logger.info(" Using SAMPLE DATA for analysis...")
+                self.data_processor._data = self.data_processor._create_sample_comment_data()
+                
             # Initialize the agent
             primary_llm = list(self.llm_providers.keys())[0]
+            
             self.agent = DataAnalysisAgent(
                 llm_providers=self.llm_providers,
                 data_processor=self.data_processor,
@@ -144,7 +170,7 @@ class AnalysisRunner:
         
         # Save main results
         results_file = output_dir / f"analysis_results_{timestamp}.json"
-        with open(results_file, 'w') as f:
+        with open(results_file, 'w',  encoding='utf-8') as f:
             json.dump(results, f, indent=2, default=str)
         
         logger.info(f"📁 Results saved to {results_file}")
@@ -152,10 +178,15 @@ class AnalysisRunner:
         # Save human-readable summary if available
         if "analysis_results" in results and "final_summary" in results["analysis_results"]:
             summary_file = output_dir / f"summary_{timestamp}.txt"
-            with open(summary_file, 'w') as f:
+            with open(summary_file, 'w',  encoding='utf-8') as f:
                 f.write("Customer Feedback Analysis Summary\n")
                 f.write("=" * 40 + "\n\n")
-                f.write(str(results["analysis_results"]["final_summary"]))
+                final_summary = results["analysis_results"]["final_summary"]
+
+                if isinstance(final_summary, dict):
+                    f.write(json.dumps(final_summary, indent=2, default=str))
+                else:
+                    f.write(str(final_summary))
             
             logger.info(f"📄 Summary saved to {summary_file}")
     
@@ -178,13 +209,13 @@ class AnalysisRunner:
             analysis = results["analysis_results"]
             
             if "data_summary" in analysis:
-                print(f"\n📈 Dataset Summary:")
+                print("\n Dataset Summary:")
                 summary = analysis["data_summary"]
                 for key, value in summary.items():
                     print(f"   {key}: {value}")
             
             if "final_summary" in analysis:
-                print(f"\n📋 Final Summary:")
+                print("\n Final Summary:")
                 print(f"   {analysis['final_summary']}")
         
         # Print errors if any
@@ -222,8 +253,10 @@ def main():
         runner.print_results_summary(results)
         
         # Save results if requested
-        if args.save_results:
+        if args.save_results:  
             runner.save_results(results, args.output_dir)
+        else:
+            logger.info(" Skipping save (use --save-results to save)")
         
         logger.info("🎉 Analysis completed successfully!")
         

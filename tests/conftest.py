@@ -4,6 +4,7 @@ from pathlib import Path
 
 import pytest
 import pandas as pd
+import time
 
 sys.path.append(str(Path(__file__).resolve().parent.parent))
 from src.llm import BaseLLMProvider, LLMResponse
@@ -14,20 +15,29 @@ class MockLLMProvider(BaseLLMProvider):
     
     def __init__(self, provider_name: str = "mock"):
         self.provider_name = provider_name
+        self.model_name = "mock-model"
+        self.model = "mock-model"
     
     def generate(self, prompt: str, system_prompt: str = None) -> LLMResponse:
         """Generate a mock response."""
+        start_time = time.time()
+        time.sleep(0.01)  
+        response_time = time.time() - start_time
+
         return LLMResponse(
             content=f"Mock response to: {prompt[:50]}...",
             model="mock-model",
             provider=self.provider_name,
-            response_time=0.1
+            response_time=response_time
         )
     
     def generate_batch(self, prompts: list, system_prompt: str = None) -> list:
         """Generate mock responses for batch."""
         return [self.generate(prompt, system_prompt) for prompt in prompts]
 
+    def get_llm(self):
+        """Get the underlying LLM instance."""
+        return None  # Mock não precisa de LLM real
 
 @pytest.fixture
 def mock_llm_providers():

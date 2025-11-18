@@ -1,3 +1,9 @@
+import sys
+from pathlib import Path
+
+project_root = Path(__file__).parent.parent
+sys.path.insert(0, str(project_root))
+
 from src.agents.core import DataAnalysisAgent
 
 class TestDataAnalysisAgentStructure:
@@ -10,6 +16,6 @@ class TestDataAnalysisAgentStructure:
         data_processor = DataProcessor()
         agent = DataAnalysisAgent(mock_llm_providers, data_processor)
         
-        assert agent._llm_providers == mock_llm_providers
-        assert agent._data_processor == data_processor
-        assert agent._graph is not None
+        assert agent.llm_providers == mock_llm_providers
+        assert agent.data_processor == data_processor
+        assert agent.graph is not None

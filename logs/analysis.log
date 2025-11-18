@@ -1,0 +1,1119 @@
+2025-11-16 23:07:15,514 - src.agents.workflow - INFO -   WorkflowNodes initialized with LLM: gpt-4o-mini
+2025-11-16 23:07:15,527 - __main__ - INFO -    - calculate_data_stats: Calculate statistical metrics on customer comments...
+2025-11-16 23:07:15,527 - __main__ - INFO -    - aggregate_sentiment: Aggregate sentiment analysis results...
+2025-11-16 23:07:15,527 - __main__ - INFO -    - generate_insights: Generate actionable business insights...
+2025-11-16 23:07:15,586 - src.agents.workflow - INFO -   Dados carregados: 259 registros
+2025-11-16 23:07:15,590 - src.agents.workflow - INFO -   Data summary: 259 records
+2025-11-16 23:07:15,592 - src.agents.workflow - INFO -   Prepared 50 sentiment analysis prompts
+2025-11-16 23:07:15,592 - src.agents.workflow - INFO -   Calling LLM for sentiment analysis...
+2025-11-16 23:07:15,870 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 401 Unauthorized"
+2025-11-16 23:07:15,872 - src.llm.providers - ERROR - OpenAI API error: Error code: 401 - {'error': {'message': 'Incorrect API key provided: your_ope************here. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'param': None, 'code': 'invalid_api_key'}}
+2025-11-16 23:07:15,872 - src.agents.workflow - ERROR - Error in sentiment analysis: Error code: 401 - {'error': {'message': 'Incorrect API key provided: your_ope************here. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'param': None, 'code': 'invalid_api_key'}}
+2025-11-16 23:07:15,873 - src.agents.workflow - INFO -   Calculating statistics...
+2025-11-16 23:07:15,877 - src.agents.workflow - INFO -   Statistics Calculated
+2025-11-16 23:07:15,877 - src.agents.workflow - INFO -      Total comments: 259
+2025-11-16 23:07:15,877 - src.agents.workflow - INFO -      Average length: 136.56 chars
+
+2025-11-16 23:07:15,878 - src.agents.workflow - INFO -   Prepared 50 topic extraction prompts
+2025-11-16 23:07:15,878 - src.agents.workflow - INFO -   Calling LLM for topic extraction...
+2025-11-16 23:07:16,077 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 401 Unauthorized"
+2025-11-16 23:07:16,078 - src.llm.providers - ERROR - OpenAI API error: Error code: 401 - {'error': {'message': 'Incorrect API key provided: your_ope************here. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'param': None, 'code': 'invalid_api_key'}}
+2025-11-16 23:07:16,078 - src.agents.workflow - ERROR -   Error in topic extraction: Error code: 401 - {'error': {'message': 'Incorrect API key provided: your_ope************here. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'param': None, 'code': 'invalid_api_key'}}
+2025-11-16 23:07:16,079 - src.agents.workflow - ERROR - Error generating final summary: 'InsightGenerationTool' object has no attribute 'set_analysis_results'
+2025-11-16 23:15:06,963 - src.agents.workflow - INFO -   WorkflowNodes initialized with LLM: gpt-4o-mini
+2025-11-16 23:15:06,974 - __main__ - INFO -    - calculate_data_stats: Calculate statistical metrics on customer comments...
+2025-11-16 23:15:06,974 - __main__ - INFO -    - aggregate_sentiment: Aggregate sentiment analysis results...
+2025-11-16 23:15:06,974 - __main__ - INFO -    - generate_insights: Generate actionable business insights...
+2025-11-16 23:15:07,006 - src.agents.workflow - INFO -   Dados carregados: 259 registros
+2025-11-16 23:15:07,008 - src.agents.workflow - INFO -   Data summary: 259 records
+2025-11-16 23:15:07,009 - src.agents.workflow - INFO -   Prepared 50 sentiment analysis prompts
+2025-11-16 23:15:07,009 - src.agents.workflow - INFO -   Calling LLM for sentiment analysis...
+2025-11-16 23:15:07,287 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 401 Unauthorized"
+2025-11-16 23:15:07,288 - src.llm.providers - ERROR - OpenAI API error: Error code: 401 - {'error': {'message': 'Incorrect API key provided: your_ope************here. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'param': None, 'code': 'invalid_api_key'}}
+2025-11-16 23:15:07,289 - src.agents.workflow - ERROR - Error in sentiment analysis: Error code: 401 - {'error': {'message': 'Incorrect API key provided: your_ope************here. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'param': None, 'code': 'invalid_api_key'}}
+2025-11-16 23:15:07,289 - src.agents.workflow - INFO -   Calculating statistics...
+2025-11-16 23:15:07,292 - src.agents.workflow - INFO -   Statistics Calculated
+2025-11-16 23:15:07,292 - src.agents.workflow - INFO -      Total comments: 259
+2025-11-16 23:15:07,292 - src.agents.workflow - INFO -      Average length: 136.56 chars
+
+2025-11-16 23:15:07,293 - src.agents.workflow - INFO -   Prepared 50 topic extraction prompts
+2025-11-16 23:15:07,293 - src.agents.workflow - INFO -   Calling LLM for topic extraction...
+2025-11-16 23:15:07,552 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 401 Unauthorized"
+2025-11-16 23:15:07,553 - src.llm.providers - ERROR - OpenAI API error: Error code: 401 - {'error': {'message': 'Incorrect API key provided: your_ope************here. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'param': None, 'code': 'invalid_api_key'}}
+2025-11-16 23:15:07,553 - src.agents.workflow - ERROR -   Error in topic extraction: Error code: 401 - {'error': {'message': 'Incorrect API key provided: your_ope************here. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'param': None, 'code': 'invalid_api_key'}}
+2025-11-16 23:15:07,554 - src.agents.workflow - INFO -   Generating insights using Python logic...
+2025-11-16 23:15:07,554 - src.agents.tools - INFO - Generating LLM-based report for insight_type='recommendations'...
+2025-11-16 23:15:07,554 - src.agents.tools - INFO - Generating recommendations using Python logic
+2025-11-16 23:15:07,554 - src.agents.tools - INFO - InsightGenerationTool: Generated 0 recommendations
+2025-11-16 23:15:07,555 - src.agents.tools - INFO - Generating LLM-based report for insight_type='trends'...
+2025-11-16 23:15:07,555 - src.agents.tools - INFO - Generating trend insights
+2025-11-16 23:15:07,555 - src.agents.tools - INFO - Generating LLM-based report for insight_type='priorities'...
+2025-11-16 23:15:07,555 - src.agents.tools - INFO - Generating priority analysis
+2025-11-16 23:15:07,555 - src.agents.workflow - INFO -   Calling LLM for final business report...
+2025-11-16 23:15:07,757 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 401 Unauthorized"
+2025-11-16 23:15:07,758 - src.llm.providers - ERROR - OpenAI API error: Error code: 401 - {'error': {'message': 'Incorrect API key provided: your_ope************here. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'param': None, 'code': 'invalid_api_key'}}
+2025-11-16 23:15:07,758 - src.agents.workflow - ERROR - Error generating final summary: Error code: 401 - {'error': {'message': 'Incorrect API key provided: your_ope************here. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'param': None, 'code': 'invalid_api_key'}}
+2025-11-16 23:20:48,218 - src.agents.workflow - INFO -   WorkflowNodes initialized with LLM: gpt-4o-mini
+2025-11-16 23:20:48,230 - __main__ - INFO -    - calculate_data_stats: Calculate statistical metrics on customer comments...
+2025-11-16 23:20:48,230 - __main__ - INFO -    - aggregate_sentiment: Aggregate sentiment analysis results...
+2025-11-16 23:20:48,230 - __main__ - INFO -    - generate_insights: Generate actionable business insights...
+2025-11-16 23:20:48,263 - src.agents.workflow - INFO -   Dados carregados: 259 registros
+2025-11-16 23:20:48,265 - src.agents.workflow - INFO -   Data summary: 259 records
+2025-11-16 23:20:48,266 - src.agents.workflow - INFO -   Prepared 50 sentiment analysis prompts
+2025-11-16 23:20:48,266 - src.agents.workflow - INFO -   Calling LLM for sentiment analysis...
+2025-11-16 23:20:48,555 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 401 Unauthorized"
+2025-11-16 23:20:48,556 - src.llm.providers - ERROR - OpenAI API error: Error code: 401 - {'error': {'message': 'Incorrect API key provided: ysk-proj*********************************************************************************************************************************************************jgAA. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'param': None, 'code': 'invalid_api_key'}}
+2025-11-16 23:20:48,556 - src.agents.workflow - ERROR - Error in sentiment analysis: Error code: 401 - {'error': {'message': 'Incorrect API key provided: ysk-proj*********************************************************************************************************************************************************jgAA. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'param': None, 'code': 'invalid_api_key'}}
+2025-11-16 23:20:48,557 - src.agents.workflow - INFO -   Calculating statistics...
+2025-11-16 23:20:48,559 - src.agents.workflow - INFO -   Statistics Calculated
+2025-11-16 23:20:48,559 - src.agents.workflow - INFO -      Total comments: 259
+2025-11-16 23:20:48,559 - src.agents.workflow - INFO -      Average length: 136.56 chars
+
+2025-11-16 23:20:48,560 - src.agents.workflow - INFO -   Prepared 50 topic extraction prompts
+2025-11-16 23:20:48,560 - src.agents.workflow - INFO -   Calling LLM for topic extraction...
+2025-11-16 23:20:48,833 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 401 Unauthorized"
+2025-11-16 23:20:48,834 - src.llm.providers - ERROR - OpenAI API error: Error code: 401 - {'error': {'message': 'Incorrect API key provided: ysk-proj*********************************************************************************************************************************************************jgAA. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'param': None, 'code': 'invalid_api_key'}}
+2025-11-16 23:20:48,834 - src.agents.workflow - ERROR -   Error in topic extraction: Error code: 401 - {'error': {'message': 'Incorrect API key provided: ysk-proj*********************************************************************************************************************************************************jgAA. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'param': None, 'code': 'invalid_api_key'}}
+2025-11-16 23:20:48,835 - src.agents.workflow - INFO -   Generating insights using Python logic...
+2025-11-16 23:20:48,835 - src.agents.tools - INFO - Generating LLM-based report for insight_type='recommendations'...
+2025-11-16 23:20:48,835 - src.agents.tools - INFO - Generating recommendations using Python logic
+2025-11-16 23:20:48,835 - src.agents.tools - INFO - InsightGenerationTool: Generated 0 recommendations
+2025-11-16 23:20:48,835 - src.agents.tools - INFO - Generating LLM-based report for insight_type='trends'...
+2025-11-16 23:20:48,835 - src.agents.tools - INFO - Generating trend insights
+2025-11-16 23:20:48,836 - src.agents.tools - INFO - Generating LLM-based report for insight_type='priorities'...
+2025-11-16 23:20:48,836 - src.agents.tools - INFO - Generating priority analysis
+2025-11-16 23:20:48,836 - src.agents.workflow - INFO -   Calling LLM for final business report...
+2025-11-16 23:20:49,019 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 401 Unauthorized"
+2025-11-16 23:20:49,020 - src.llm.providers - ERROR - OpenAI API error: Error code: 401 - {'error': {'message': 'Incorrect API key provided: ysk-proj*********************************************************************************************************************************************************jgAA. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'param': None, 'code': 'invalid_api_key'}}
+2025-11-16 23:20:49,020 - src.agents.workflow - ERROR - Error generating final summary: Error code: 401 - {'error': {'message': 'Incorrect API key provided: ysk-proj*********************************************************************************************************************************************************jgAA. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'param': None, 'code': 'invalid_api_key'}}
+2025-11-16 23:24:29,552 - src.agents.workflow - INFO -   WorkflowNodes initialized with LLM: gpt-4o-mini
+2025-11-16 23:24:29,564 - __main__ - INFO -    - calculate_data_stats: Calculate statistical metrics on customer comments...
+2025-11-16 23:24:29,564 - __main__ - INFO -    - aggregate_sentiment: Aggregate sentiment analysis results...
+2025-11-16 23:24:29,564 - __main__ - INFO -    - generate_insights: Generate actionable business insights...
+2025-11-16 23:24:29,597 - src.agents.workflow - INFO -   Dados carregados: 259 registros
+2025-11-16 23:24:29,599 - src.agents.workflow - INFO -   Data summary: 259 records
+2025-11-16 23:24:29,600 - src.agents.workflow - INFO -   Prepared 50 sentiment analysis prompts
+2025-11-16 23:24:29,600 - src.agents.workflow - INFO -   Calling LLM for sentiment analysis...
+2025-11-16 23:24:30,111 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-11-16 23:24:30,111 - openai._base_client - INFO - Retrying request to /chat/completions in 0.447176 seconds
+2025-11-16 23:24:31,177 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-11-16 23:24:31,178 - openai._base_client - INFO - Retrying request to /chat/completions in 0.795110 seconds
+2025-11-16 23:24:32,156 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-11-16 23:24:32,157 - src.llm.providers - ERROR - OpenAI API error: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+2025-11-16 23:24:32,157 - src.agents.workflow - ERROR - Error in sentiment analysis: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+2025-11-16 23:24:32,158 - src.agents.workflow - INFO -   Calculating statistics...
+2025-11-16 23:24:32,161 - src.agents.workflow - INFO -   Statistics Calculated
+2025-11-16 23:24:32,161 - src.agents.workflow - INFO -      Total comments: 259
+2025-11-16 23:24:32,161 - src.agents.workflow - INFO -      Average length: 136.56 chars
+
+2025-11-16 23:24:32,162 - src.agents.workflow - INFO -   Prepared 50 topic extraction prompts
+2025-11-16 23:24:32,162 - src.agents.workflow - INFO -   Calling LLM for topic extraction...
+2025-11-16 23:24:32,868 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-11-16 23:24:32,869 - openai._base_client - INFO - Retrying request to /chat/completions in 0.460756 seconds
+2025-11-16 23:24:33,948 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-11-16 23:24:33,948 - openai._base_client - INFO - Retrying request to /chat/completions in 0.828744 seconds
+2025-11-16 23:24:34,939 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-11-16 23:24:34,940 - src.llm.providers - ERROR - OpenAI API error: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+2025-11-16 23:24:34,940 - src.agents.workflow - ERROR -   Error in topic extraction: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+2025-11-16 23:24:34,940 - src.agents.workflow - INFO -   Generating insights using Python logic...
+2025-11-16 23:24:34,941 - src.agents.tools - INFO - Generating LLM-based report for insight_type='recommendations'...
+2025-11-16 23:24:34,941 - src.agents.tools - INFO - Generating recommendations using Python logic
+2025-11-16 23:24:34,941 - src.agents.tools - INFO - InsightGenerationTool: Generated 0 recommendations
+2025-11-16 23:24:34,941 - src.agents.tools - INFO - Generating LLM-based report for insight_type='trends'...
+2025-11-16 23:24:34,941 - src.agents.tools - INFO - Generating trend insights
+2025-11-16 23:24:34,941 - src.agents.tools - INFO - Generating LLM-based report for insight_type='priorities'...
+2025-11-16 23:24:34,941 - src.agents.tools - INFO - Generating priority analysis
+2025-11-16 23:24:34,941 - src.agents.workflow - INFO -   Calling LLM for final business report...
+2025-11-16 23:24:35,552 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-11-16 23:24:35,553 - openai._base_client - INFO - Retrying request to /chat/completions in 0.470300 seconds
+2025-11-16 23:24:36,185 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-11-16 23:24:36,185 - openai._base_client - INFO - Retrying request to /chat/completions in 0.822981 seconds
+2025-11-16 23:24:37,189 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-11-16 23:24:37,189 - src.llm.providers - ERROR - OpenAI API error: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+2025-11-16 23:24:37,190 - src.agents.workflow - ERROR - Error generating final summary: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+2025-11-16 23:27:48,432 - src.agents.workflow - INFO -   WorkflowNodes initialized with LLM: gemini-2.5-flash-lite
+2025-11-16 23:27:48,443 - __main__ - INFO -    - calculate_data_stats: Calculate statistical metrics on customer comments...
+2025-11-16 23:27:48,443 - __main__ - INFO -    - aggregate_sentiment: Aggregate sentiment analysis results...
+2025-11-16 23:27:48,443 - __main__ - INFO -    - generate_insights: Generate actionable business insights...
+2025-11-16 23:27:48,475 - src.agents.workflow - INFO -   Dados carregados: 259 registros
+2025-11-16 23:27:48,477 - src.agents.workflow - INFO -   Data summary: 259 records
+2025-11-16 23:27:48,479 - src.agents.workflow - INFO -   Prepared 50 sentiment analysis prompts
+2025-11-16 23:27:48,479 - src.agents.workflow - INFO -   Calling LLM for sentiment analysis...
+2025-11-16 23:28:03,654 - langchain_google_genai.chat_models - WARNING - Retrying langchain_google_genai.chat_models._chat_with_retry.<locals>._chat_with_retry in 2.0 seconds as it raised ResourceExhausted: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/usage?tab=rate-limit. 
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 15, model: gemini-2.5-flash-lite
+Please retry in 58.413248745s. [links {
+  description: "Learn more about Gemini API quotas"
+  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
+}
+, violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_requests"
+  quota_id: "GenerateRequestsPerMinutePerProjectPerModel-FreeTier"
+  quota_dimensions {
+    key: "model"
+    value: "gemini-2.5-flash-lite"
+  }
+  quota_dimensions {
+    key: "location"
+    value: "global"
+  }
+  quota_value: 15
+}
+, retry_delay {
+  seconds: 58
+}
+].
+2025-11-16 23:28:05,873 - src.llm.providers - ERROR - Gemini API error: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/usage?tab=rate-limit. 
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 15, model: gemini-2.5-flash-lite
+Please retry in 56.18569988s. [links {
+  description: "Learn more about Gemini API quotas"
+  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
+}
+, violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_requests"
+  quota_id: "GenerateRequestsPerMinutePerProjectPerModel-FreeTier"
+  quota_dimensions {
+    key: "model"
+    value: "gemini-2.5-flash-lite"
+  }
+  quota_dimensions {
+    key: "location"
+    value: "global"
+  }
+  quota_value: 15
+}
+, retry_delay {
+  seconds: 56
+}
+]
+2025-11-16 23:28:05,874 - src.agents.workflow - ERROR - Error in sentiment analysis: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/usage?tab=rate-limit. 
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 15, model: gemini-2.5-flash-lite
+Please retry in 56.18569988s. [links {
+  description: "Learn more about Gemini API quotas"
+  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
+}
+, violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_requests"
+  quota_id: "GenerateRequestsPerMinutePerProjectPerModel-FreeTier"
+  quota_dimensions {
+    key: "model"
+    value: "gemini-2.5-flash-lite"
+  }
+  quota_dimensions {
+    key: "location"
+    value: "global"
+  }
+  quota_value: 15
+}
+, retry_delay {
+  seconds: 56
+}
+]
+2025-11-16 23:28:05,874 - src.agents.workflow - INFO -   Calculating statistics...
+2025-11-16 23:28:05,877 - src.agents.workflow - INFO -   Statistics Calculated
+2025-11-16 23:28:05,877 - src.agents.workflow - INFO -      Total comments: 259
+2025-11-16 23:28:05,877 - src.agents.workflow - INFO -      Average length: 136.56 chars
+
+2025-11-16 23:28:05,878 - src.agents.workflow - INFO -   Prepared 50 topic extraction prompts
+2025-11-16 23:28:05,878 - src.agents.workflow - INFO -   Calling LLM for topic extraction...
+2025-11-16 23:28:06,545 - langchain_google_genai.chat_models - WARNING - Retrying langchain_google_genai.chat_models._chat_with_retry.<locals>._chat_with_retry in 2.0 seconds as it raised ResourceExhausted: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/usage?tab=rate-limit. 
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 15, model: gemini-2.5-flash-lite
+Please retry in 55.516236091s. [links {
+  description: "Learn more about Gemini API quotas"
+  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
+}
+, violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_requests"
+  quota_id: "GenerateRequestsPerMinutePerProjectPerModel-FreeTier"
+  quota_dimensions {
+    key: "model"
+    value: "gemini-2.5-flash-lite"
+  }
+  quota_dimensions {
+    key: "location"
+    value: "global"
+  }
+  quota_value: 15
+}
+, retry_delay {
+  seconds: 55
+}
+].
+2025-11-16 23:28:08,785 - src.llm.providers - ERROR - Gemini API error: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/usage?tab=rate-limit. 
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 15, model: gemini-2.5-flash-lite
+Please retry in 53.273494176s. [links {
+  description: "Learn more about Gemini API quotas"
+  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
+}
+, violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_requests"
+  quota_id: "GenerateRequestsPerMinutePerProjectPerModel-FreeTier"
+  quota_dimensions {
+    key: "model"
+    value: "gemini-2.5-flash-lite"
+  }
+  quota_dimensions {
+    key: "location"
+    value: "global"
+  }
+  quota_value: 15
+}
+, retry_delay {
+  seconds: 53
+}
+]
+2025-11-16 23:28:08,785 - src.agents.workflow - ERROR -   Error in topic extraction: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/usage?tab=rate-limit. 
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 15, model: gemini-2.5-flash-lite
+Please retry in 53.273494176s. [links {
+  description: "Learn more about Gemini API quotas"
+  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
+}
+, violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_requests"
+  quota_id: "GenerateRequestsPerMinutePerProjectPerModel-FreeTier"
+  quota_dimensions {
+    key: "model"
+    value: "gemini-2.5-flash-lite"
+  }
+  quota_dimensions {
+    key: "location"
+    value: "global"
+  }
+  quota_value: 15
+}
+, retry_delay {
+  seconds: 53
+}
+]
+2025-11-16 23:28:08,786 - src.agents.workflow - INFO -   Generating insights using Python logic...
+2025-11-16 23:28:08,786 - src.agents.tools - INFO - Generating LLM-based report for insight_type='recommendations'...
+2025-11-16 23:28:08,786 - src.agents.tools - INFO - Generating recommendations using Python logic
+2025-11-16 23:28:08,787 - src.agents.tools - INFO - InsightGenerationTool: Generated 0 recommendations
+2025-11-16 23:28:08,787 - src.agents.tools - INFO - Generating LLM-based report for insight_type='trends'...
+2025-11-16 23:28:08,787 - src.agents.tools - INFO - Generating trend insights
+2025-11-16 23:28:08,787 - src.agents.tools - INFO - Generating LLM-based report for insight_type='priorities'...
+2025-11-16 23:28:08,787 - src.agents.tools - INFO - Generating priority analysis
+2025-11-16 23:28:08,787 - src.agents.workflow - INFO -   Calling LLM for final business report...
+2025-11-16 23:28:09,404 - langchain_google_genai.chat_models - WARNING - Retrying langchain_google_genai.chat_models._chat_with_retry.<locals>._chat_with_retry in 2.0 seconds as it raised ResourceExhausted: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/usage?tab=rate-limit. 
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 15, model: gemini-2.5-flash-lite
+Please retry in 52.655786797s. [links {
+  description: "Learn more about Gemini API quotas"
+  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
+}
+, violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_requests"
+  quota_id: "GenerateRequestsPerMinutePerProjectPerModel-FreeTier"
+  quota_dimensions {
+    key: "model"
+    value: "gemini-2.5-flash-lite"
+  }
+  quota_dimensions {
+    key: "location"
+    value: "global"
+  }
+  quota_value: 15
+}
+, retry_delay {
+  seconds: 52
+}
+].
+2025-11-16 23:28:11,623 - src.llm.providers - ERROR - Gemini API error: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/usage?tab=rate-limit. 
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 15, model: gemini-2.5-flash-lite
+Please retry in 50.434889254s. [links {
+  description: "Learn more about Gemini API quotas"
+  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
+}
+, violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_requests"
+  quota_id: "GenerateRequestsPerMinutePerProjectPerModel-FreeTier"
+  quota_dimensions {
+    key: "model"
+    value: "gemini-2.5-flash-lite"
+  }
+  quota_dimensions {
+    key: "location"
+    value: "global"
+  }
+  quota_value: 15
+}
+, retry_delay {
+  seconds: 50
+}
+]
+2025-11-16 23:28:11,623 - src.agents.workflow - ERROR - Error generating final summary: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/usage?tab=rate-limit. 
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 15, model: gemini-2.5-flash-lite
+Please retry in 50.434889254s. [links {
+  description: "Learn more about Gemini API quotas"
+  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
+}
+, violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_requests"
+  quota_id: "GenerateRequestsPerMinutePerProjectPerModel-FreeTier"
+  quota_dimensions {
+    key: "model"
+    value: "gemini-2.5-flash-lite"
+  }
+  quota_dimensions {
+    key: "location"
+    value: "global"
+  }
+  quota_value: 15
+}
+, retry_delay {
+  seconds: 50
+}
+]
+2025-11-17 10:14:55,079 - src.agents.workflow - INFO -   WorkflowNodes initialized with LLM: gemini-2.5-flash-lite
+2025-11-17 10:14:55,092 - __main__ - INFO -    - calculate_data_stats: Calculate statistical metrics on customer comments...
+2025-11-17 10:14:55,092 - __main__ - INFO -    - aggregate_sentiment: Aggregate sentiment analysis results...
+2025-11-17 10:14:55,092 - __main__ - INFO -    - generate_insights: Generate actionable business insights...
+2025-11-17 10:14:55,167 - src.agents.workflow - INFO -   Dados carregados: 259 registros
+2025-11-17 10:14:55,172 - src.agents.workflow - INFO -   Data summary: 259 records
+2025-11-17 10:14:55,174 - src.agents.workflow - INFO -   Prepared 50 sentiment analysis prompts
+2025-11-17 10:14:55,174 - src.agents.workflow - INFO -   Calling LLM for sentiment analysis...
+2025-11-17 10:15:32,507 - langchain_google_genai.chat_models - WARNING - Retrying langchain_google_genai.chat_models._chat_with_retry.<locals>._chat_with_retry in 2.0 seconds as it raised ResourceExhausted: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/usage?tab=rate-limit. 
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 15, model: gemini-2.5-flash-lite
+Please retry in 27.731090746s. [links {
+  description: "Learn more about Gemini API quotas"
+  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
+}
+, violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_requests"
+  quota_id: "GenerateRequestsPerMinutePerProjectPerModel-FreeTier"
+  quota_dimensions {
+    key: "model"
+    value: "gemini-2.5-flash-lite"
+  }
+  quota_dimensions {
+    key: "location"
+    value: "global"
+  }
+  quota_value: 15
+}
+, retry_delay {
+  seconds: 27
+}
+].
+2025-11-17 10:15:35,689 - langchain_google_genai.chat_models - WARNING - Retrying langchain_google_genai.chat_models._chat_with_retry.<locals>._chat_with_retry in 2.0 seconds as it raised ResourceExhausted: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/usage?tab=rate-limit. 
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 15, model: gemini-2.5-flash-lite
+Please retry in 24.546976422s. [links {
+  description: "Learn more about Gemini API quotas"
+  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
+}
+, violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_requests"
+  quota_id: "GenerateRequestsPerMinutePerProjectPerModel-FreeTier"
+  quota_dimensions {
+    key: "model"
+    value: "gemini-2.5-flash-lite"
+  }
+  quota_dimensions {
+    key: "location"
+    value: "global"
+  }
+  quota_value: 15
+}
+, retry_delay {
+  seconds: 24
+}
+].
+2025-11-17 10:15:37,912 - src.llm.providers - ERROR - Gemini API error: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/usage?tab=rate-limit. 
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 15, model: gemini-2.5-flash-lite
+Please retry in 22.323659275s. [links {
+  description: "Learn more about Gemini API quotas"
+  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
+}
+, violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_requests"
+  quota_id: "GenerateRequestsPerMinutePerProjectPerModel-FreeTier"
+  quota_dimensions {
+    key: "model"
+    value: "gemini-2.5-flash-lite"
+  }
+  quota_dimensions {
+    key: "location"
+    value: "global"
+  }
+  quota_value: 15
+}
+, retry_delay {
+  seconds: 22
+}
+]
+2025-11-17 10:15:37,912 - src.agents.workflow - ERROR - Error in sentiment analysis: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/usage?tab=rate-limit. 
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 15, model: gemini-2.5-flash-lite
+Please retry in 22.323659275s. [links {
+  description: "Learn more about Gemini API quotas"
+  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
+}
+, violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_requests"
+  quota_id: "GenerateRequestsPerMinutePerProjectPerModel-FreeTier"
+  quota_dimensions {
+    key: "model"
+    value: "gemini-2.5-flash-lite"
+  }
+  quota_dimensions {
+    key: "location"
+    value: "global"
+  }
+  quota_value: 15
+}
+, retry_delay {
+  seconds: 22
+}
+]
+2025-11-17 10:15:37,913 - src.agents.workflow - INFO -   Calculating statistics...
+2025-11-17 10:15:37,916 - src.agents.workflow - INFO -   Statistics Calculated
+2025-11-17 10:15:37,916 - src.agents.workflow - INFO -      Total comments: 259
+2025-11-17 10:15:37,917 - src.agents.workflow - INFO -      Average length: 136.56 chars
+
+2025-11-17 10:15:37,917 - src.agents.workflow - INFO -   Prepared 50 topic extraction prompts
+2025-11-17 10:15:37,918 - src.agents.workflow - INFO -   Calling LLM for topic extraction...
+2025-11-17 10:15:38,579 - langchain_google_genai.chat_models - WARNING - Retrying langchain_google_genai.chat_models._chat_with_retry.<locals>._chat_with_retry in 2.0 seconds as it raised ResourceExhausted: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/usage?tab=rate-limit. 
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 15, model: gemini-2.5-flash-lite
+Please retry in 21.656221448s. [links {
+  description: "Learn more about Gemini API quotas"
+  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
+}
+, violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_requests"
+  quota_id: "GenerateRequestsPerMinutePerProjectPerModel-FreeTier"
+  quota_dimensions {
+    key: "model"
+    value: "gemini-2.5-flash-lite"
+  }
+  quota_dimensions {
+    key: "location"
+    value: "global"
+  }
+  quota_value: 15
+}
+, retry_delay {
+  seconds: 21
+}
+].
+2025-11-17 10:15:40,901 - src.llm.providers - ERROR - Gemini API error: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/usage?tab=rate-limit. 
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 15, model: gemini-2.5-flash-lite
+Please retry in 19.385313942s. [links {
+  description: "Learn more about Gemini API quotas"
+  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
+}
+, violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_requests"
+  quota_id: "GenerateRequestsPerMinutePerProjectPerModel-FreeTier"
+  quota_dimensions {
+    key: "model"
+    value: "gemini-2.5-flash-lite"
+  }
+  quota_dimensions {
+    key: "location"
+    value: "global"
+  }
+  quota_value: 15
+}
+, retry_delay {
+  seconds: 19
+}
+]
+2025-11-17 10:15:40,901 - src.agents.workflow - ERROR -   Error in topic extraction: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/usage?tab=rate-limit. 
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 15, model: gemini-2.5-flash-lite
+Please retry in 19.385313942s. [links {
+  description: "Learn more about Gemini API quotas"
+  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
+}
+, violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_requests"
+  quota_id: "GenerateRequestsPerMinutePerProjectPerModel-FreeTier"
+  quota_dimensions {
+    key: "model"
+    value: "gemini-2.5-flash-lite"
+  }
+  quota_dimensions {
+    key: "location"
+    value: "global"
+  }
+  quota_value: 15
+}
+, retry_delay {
+  seconds: 19
+}
+]
+2025-11-17 10:15:40,902 - src.agents.workflow - INFO -   Generating insights using Python logic...
+2025-11-17 10:15:40,902 - src.agents.tools - INFO - Generating LLM-based report for insight_type='recommendations'...
+2025-11-17 10:15:40,902 - src.agents.tools - INFO - Generating recommendations using Python logic
+2025-11-17 10:15:40,902 - src.agents.tools - INFO - InsightGenerationTool: Generated 0 recommendations
+2025-11-17 10:15:40,903 - src.agents.tools - INFO - Generating LLM-based report for insight_type='trends'...
+2025-11-17 10:15:40,903 - src.agents.tools - INFO - Generating trend insights
+2025-11-17 10:15:40,903 - src.agents.tools - INFO - Generating LLM-based report for insight_type='priorities'...
+2025-11-17 10:15:40,903 - src.agents.tools - INFO - Generating priority analysis
+2025-11-17 10:15:40,903 - src.agents.workflow - INFO -   Calling LLM for final business report...
+2025-11-17 10:15:41,614 - langchain_google_genai.chat_models - WARNING - Retrying langchain_google_genai.chat_models._chat_with_retry.<locals>._chat_with_retry in 2.0 seconds as it raised ResourceExhausted: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/usage?tab=rate-limit. 
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 15, model: gemini-2.5-flash-lite
+Please retry in 18.70772418s. [links {
+  description: "Learn more about Gemini API quotas"
+  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
+}
+, violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_requests"
+  quota_id: "GenerateRequestsPerMinutePerProjectPerModel-FreeTier"
+  quota_dimensions {
+    key: "model"
+    value: "gemini-2.5-flash-lite"
+  }
+  quota_dimensions {
+    key: "location"
+    value: "global"
+  }
+  quota_value: 15
+}
+, retry_delay {
+  seconds: 18
+}
+].
+2025-11-17 10:15:43,976 - src.llm.providers - ERROR - Gemini API error: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/usage?tab=rate-limit. 
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 15, model: gemini-2.5-flash-lite
+Please retry in 16.390938177s. [links {
+  description: "Learn more about Gemini API quotas"
+  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
+}
+, violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_requests"
+  quota_id: "GenerateRequestsPerMinutePerProjectPerModel-FreeTier"
+  quota_dimensions {
+    key: "model"
+    value: "gemini-2.5-flash-lite"
+  }
+  quota_dimensions {
+    key: "location"
+    value: "global"
+  }
+  quota_value: 15
+}
+, retry_delay {
+  seconds: 16
+}
+]
+2025-11-17 10:15:43,976 - src.agents.workflow - ERROR - Error generating final summary: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/usage?tab=rate-limit. 
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 15, model: gemini-2.5-flash-lite
+Please retry in 16.390938177s. [links {
+  description: "Learn more about Gemini API quotas"
+  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
+}
+, violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_requests"
+  quota_id: "GenerateRequestsPerMinutePerProjectPerModel-FreeTier"
+  quota_dimensions {
+    key: "model"
+    value: "gemini-2.5-flash-lite"
+  }
+  quota_dimensions {
+    key: "location"
+    value: "global"
+  }
+  quota_value: 15
+}
+, retry_delay {
+  seconds: 16
+}
+]
+2025-11-17 10:47:00,078 - src.agents.workflow - INFO -   WorkflowNodes initialized with LLM: gpt-4o-mini
+2025-11-17 10:47:00,091 - __main__ - INFO -    - calculate_data_stats: Calculate statistical metrics on customer comments...
+2025-11-17 10:47:00,091 - __main__ - INFO -    - aggregate_sentiment: Aggregate sentiment analysis results...
+2025-11-17 10:47:00,091 - __main__ - INFO -    - generate_insights: Generate actionable business insights...
+2025-11-17 10:47:00,166 - src.agents.workflow - INFO -   Dados carregados: 259 registros
+2025-11-17 10:47:00,171 - src.agents.workflow - INFO -   Data summary: 259 records
+2025-11-17 10:47:00,172 - src.agents.workflow - INFO -   Prepared 50 sentiment analysis prompts
+2025-11-17 10:47:00,173 - src.agents.workflow - INFO -   Calling LLM for sentiment analysis...
+2025-11-17 10:47:00,529 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 401 Unauthorized"
+2025-11-17 10:47:00,536 - src.llm.providers - ERROR - OpenAI API error: Error code: 401 - {'error': {'message': 'Incorrect API key provided: ssk-proj*********************************************************************************************************************************************************vh4A. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'param': None, 'code': 'invalid_api_key'}}
+2025-11-17 10:47:00,537 - src.agents.workflow - ERROR - Error in sentiment analysis: Error code: 401 - {'error': {'message': 'Incorrect API key provided: ssk-proj*********************************************************************************************************************************************************vh4A. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'param': None, 'code': 'invalid_api_key'}}
+2025-11-17 10:47:00,537 - src.agents.workflow - INFO -   Calculating statistics...
+2025-11-17 10:47:00,543 - src.agents.workflow - INFO -   Statistics Calculated
+2025-11-17 10:47:00,543 - src.agents.workflow - INFO -      Total comments: 259
+2025-11-17 10:47:00,543 - src.agents.workflow - INFO -      Average length: 136.56 chars
+
+2025-11-17 10:47:00,544 - src.agents.workflow - INFO -   Prepared 50 topic extraction prompts
+2025-11-17 10:47:00,544 - src.agents.workflow - INFO -   Calling LLM for topic extraction...
+2025-11-17 10:47:00,736 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 401 Unauthorized"
+2025-11-17 10:47:00,737 - src.llm.providers - ERROR - OpenAI API error: Error code: 401 - {'error': {'message': 'Incorrect API key provided: ssk-proj*********************************************************************************************************************************************************vh4A. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'param': None, 'code': 'invalid_api_key'}}
+2025-11-17 10:47:00,737 - src.agents.workflow - ERROR -   Error in topic extraction: Error code: 401 - {'error': {'message': 'Incorrect API key provided: ssk-proj*********************************************************************************************************************************************************vh4A. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'param': None, 'code': 'invalid_api_key'}}
+2025-11-17 10:47:00,737 - src.agents.workflow - INFO -   Generating insights using Python logic...
+2025-11-17 10:47:00,738 - src.agents.tools - INFO - Generating LLM-based report for insight_type='recommendations'...
+2025-11-17 10:47:00,738 - src.agents.tools - INFO - Generating recommendations using Python logic
+2025-11-17 10:47:00,738 - src.agents.tools - INFO - InsightGenerationTool: Generated 0 recommendations
+2025-11-17 10:47:00,738 - src.agents.tools - INFO - Generating LLM-based report for insight_type='trends'...
+2025-11-17 10:47:00,738 - src.agents.tools - INFO - Generating trend insights
+2025-11-17 10:47:00,738 - src.agents.tools - INFO - Generating LLM-based report for insight_type='priorities'...
+2025-11-17 10:47:00,738 - src.agents.tools - INFO - Generating priority analysis
+2025-11-17 10:47:00,738 - src.agents.workflow - INFO -   Calling LLM for final business report...
+2025-11-17 10:47:00,912 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 401 Unauthorized"
+2025-11-17 10:47:00,912 - src.llm.providers - ERROR - OpenAI API error: Error code: 401 - {'error': {'message': 'Incorrect API key provided: ssk-proj*********************************************************************************************************************************************************vh4A. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'param': None, 'code': 'invalid_api_key'}}
+2025-11-17 10:47:00,913 - src.agents.workflow - ERROR - Error generating final summary: Error code: 401 - {'error': {'message': 'Incorrect API key provided: ssk-proj*********************************************************************************************************************************************************vh4A. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'param': None, 'code': 'invalid_api_key'}}
+2025-11-17 10:56:41,744 - __main__ - INFO - 🎬 Initializing AI Analysis System...
+2025-11-17 10:56:42,703 - __main__ - INFO - ✅ OpenAI provider initialized successfully
+2025-11-17 10:56:42,718 - __main__ - INFO - ✅ Gemini provider initialized successfully
+2025-11-17 10:56:42,718 - __main__ - INFO - 🔍 Running customer feedback analysis...
+2025-11-17 10:56:42,718 - __main__ - INFO - 🚀 Starting customer feedback analysis workflow...
+2025-11-17 10:56:42,718 - src.agents.workflow - INFO -   WorkflowNodes initialized with LLM: gpt-4o-mini
+2025-11-17 10:56:42,732 - __main__ - INFO - 🛠️  Available analysis tools:
+2025-11-17 10:56:42,733 - __main__ - INFO -    - calculate_data_stats: Calculate statistical metrics on customer comments...
+2025-11-17 10:56:42,733 - __main__ - INFO -    - aggregate_sentiment: Aggregate sentiment analysis results...
+2025-11-17 10:56:42,733 - __main__ - INFO -    - generate_insights: Generate actionable business insights...
+2025-11-17 10:56:42,769 - src.agents.workflow - INFO -   Dados carregados: 259 registros
+2025-11-17 10:56:42,771 - src.agents.workflow - INFO -   Data summary: 259 records
+2025-11-17 10:56:42,773 - src.agents.workflow - INFO -   Prepared 50 sentiment analysis prompts
+2025-11-17 10:56:42,773 - src.agents.workflow - INFO -   Calling LLM for sentiment analysis...
+2025-11-17 10:56:46,981 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-17 10:56:50,146 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-17 10:56:52,063 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-17 10:56:56,070 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-17 10:56:58,089 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-17 10:57:05,492 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-17 10:57:07,240 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-17 10:57:09,409 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-17 10:57:12,343 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-17 10:57:15,006 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-17 10:57:16,986 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-17 10:57:19,517 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-17 10:57:22,277 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-17 10:57:25,008 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-17 10:57:27,301 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-17 10:57:29,862 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-17 10:57:34,532 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-17 10:57:36,259 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-17 10:57:39,449 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-17 10:57:41,429 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-17 10:57:43,525 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-17 10:57:45,629 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-17 10:57:47,097 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-17 10:57:48,896 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-17 10:57:50,757 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-17 10:57:52,290 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-17 10:57:54,745 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-17 10:57:56,477 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-17 10:57:59,047 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-17 10:58:01,514 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-17 10:58:03,965 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-17 10:58:06,824 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-17 10:58:09,091 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-17 10:58:11,443 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-17 10:58:13,493 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-17 10:58:16,177 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-17 10:58:19,421 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-17 10:58:21,349 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-17 10:58:23,732 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-17 10:58:26,292 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-17 10:58:28,952 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-17 10:58:32,020 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-17 10:58:34,482 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-17 10:58:36,201 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-17 10:58:38,168 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-17 10:58:39,799 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-17 10:58:41,945 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-17 10:58:44,389 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-17 10:58:45,871 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-17 10:58:47,692 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-17 10:58:47,693 - src.agents.workflow - INFO -   LLM returned 50 sentiment analyses
+2025-11-17 10:58:47,694 - src.agents.tools - INFO - SentimentAggregationTool: Summary - Overall: positive, Confidence: 0.867
+2025-11-17 10:58:47,694 - src.agents.workflow - INFO - Sentiment Analysis Complete
+2025-11-17 10:58:47,694 - src.agents.workflow - INFO - Overall Sentiment: POSITIVE
+2025-11-17 10:58:47,694 - src.agents.workflow - INFO - Confidence: 0.867
+
+2025-11-17 10:58:47,695 - src.agents.workflow - INFO -   Calculating statistics...
+2025-11-17 10:58:47,697 - src.agents.workflow - INFO -   Statistics Calculated
+2025-11-17 10:58:47,697 - src.agents.workflow - INFO -      Total comments: 259
+2025-11-17 10:58:47,698 - src.agents.workflow - INFO -      Average length: 136.56 chars
+
+2025-11-17 10:58:47,698 - src.agents.workflow - INFO -   Prepared 50 topic extraction prompts
+2025-11-17 10:58:47,699 - src.agents.workflow - INFO -   Calling LLM for topic extraction...
+2025-11-17 10:58:54,158 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-17 10:58:56,465 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-17 10:58:58,136 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-17 10:59:02,436 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-17 10:59:03,938 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-17 10:59:09,346 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-17 10:59:13,113 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-17 10:59:14,739 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-17 10:59:15,682 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-17 10:59:19,118 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-17 10:59:20,375 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-17 10:59:23,771 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-17 10:59:25,844 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-17 10:59:29,659 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-17 10:59:34,355 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-17 10:59:37,332 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-17 10:59:40,233 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-17 10:59:42,388 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-17 10:59:44,579 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-17 10:59:46,277 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-17 10:59:47,604 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-17 10:59:49,656 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-17 10:59:50,786 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-17 10:59:52,317 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-17 10:59:54,637 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-17 10:59:56,016 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-17 10:59:57,250 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-17 10:59:58,391 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-17 11:00:01,983 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-17 11:00:04,698 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-17 11:00:07,486 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-17 11:00:09,402 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-17 11:00:11,467 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-17 11:00:13,318 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-17 11:00:15,633 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-17 11:00:17,365 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-17 11:00:19,150 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-17 11:00:22,024 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-17 11:00:24,208 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-17 11:00:26,908 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-17 11:00:29,250 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-17 11:00:31,745 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-17 11:00:34,297 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-17 11:00:36,155 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-17 11:00:38,914 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-17 11:00:40,145 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-17 11:00:41,813 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-17 11:00:43,938 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-17 11:00:46,451 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-17 11:00:48,430 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-17 11:00:48,435 - src.agents.workflow - INFO -   LLM returned 50 topic analyses
+2025-11-17 11:00:48,436 - src.agents.workflow - INFO -   Topic Extraction Complete
+2025-11-17 11:00:48,436 - src.agents.workflow - INFO -      Main topics: camera quality, phone, battery life
+
+2025-11-17 11:00:48,436 - src.agents.workflow - INFO -   Generating insights using Python logic...
+2025-11-17 11:00:48,436 - src.agents.tools - INFO - Generating LLM-based report for insight_type='recommendations'...
+2025-11-17 11:00:48,436 - src.agents.tools - INFO - Generating recommendations using Python logic
+2025-11-17 11:00:48,437 - src.agents.tools - INFO - InsightGenerationTool: Generated 2 recommendations
+2025-11-17 11:00:48,437 - src.agents.tools - INFO - Generating LLM-based report for insight_type='trends'...
+2025-11-17 11:00:48,437 - src.agents.tools - INFO - Generating trend insights
+2025-11-17 11:00:48,437 - src.agents.tools - INFO - Generating LLM-based report for insight_type='priorities'...
+2025-11-17 11:00:48,437 - src.agents.tools - INFO - Generating priority analysis
+2025-11-17 11:00:48,437 - src.agents.workflow - INFO -   Calling LLM for final business report...
+2025-11-17 11:01:00,041 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-17 11:01:00,072 - src.agents.workflow - INFO -   Final Summary Generated
+2025-11-17 11:01:00,072 - src.agents.workflow - INFO -      Report length: 2371 characters
+2025-11-17 11:01:00,073 - src.agents.workflow - INFO -      Model used: gpt-4o-mini
+
+2025-11-17 11:01:00,073 - __main__ - INFO - ✅ Analysis completed in 257.34 seconds
+2025-11-17 11:01:00,074 - __main__ - INFO - 🎉 Analysis completed successfully!
+2025-11-17 12:16:45,804 - __main__ - INFO - 🎬 Initializing AI Analysis System...
+2025-11-17 12:16:46,868 - src.llm.cache - INFO - LLMCache initialized at .cache\llm
+2025-11-17 12:16:46,868 - src.llm.providers - INFO - OpenAIProvider initialized with model gpt-4o-mini
+2025-11-17 12:16:46,868 - __main__ - INFO - ✅ OpenAI provider initialized successfully
+2025-11-17 12:16:46,923 - __main__ - INFO - ✅ Gemini provider initialized successfully
+2025-11-17 12:16:46,924 - __main__ - INFO - 🔍 Running customer feedback analysis...
+2025-11-17 12:16:46,924 - __main__ - INFO - 🚀 Starting customer feedback analysis workflow...
+2025-11-17 12:16:46,924 - __main__ - INFO - 📊 Using SAMPLE DATA for analysis...
+2025-11-17 12:16:47,010 - src.agents.workflow - INFO -   WorkflowNodes initialized with LLM: gpt-4o-mini
+2025-11-17 12:16:47,022 - __main__ - INFO - 🛠️  Available analysis tools:
+2025-11-17 12:16:47,022 - __main__ - INFO -    - calculate_data_stats: Calculate statistical metrics on customer comments...
+2025-11-17 12:16:47,022 - __main__ - INFO -    - aggregate_sentiment: Aggregate sentiment analysis results...
+2025-11-17 12:16:47,023 - __main__ - INFO -    - generate_insights: Generate actionable business insights...
+2025-11-17 12:16:47,074 - src.agents.workflow - INFO -   Dados carregados: 259 registros
+2025-11-17 12:16:47,077 - src.agents.workflow - INFO -   Data summary: 259 records
+2025-11-17 12:16:47,078 - src.agents.workflow - INFO - Dados carregados: 259 registros
+2025-11-17 12:16:47,079 - src.agents.core - ERROR - Error in analysis workflow: 'WorkflowNodes' object has no attribute 'MAX_SENTIMENT_PROMPTS'
+2025-11-17 12:16:47,079 - __main__ - INFO - ✅ Analysis completed in 0.06 seconds
+2025-11-17 12:16:47,079 - __main__ - INFO - 📌 Skipping save (use --save-results to save)
+2025-11-17 12:16:47,079 - __main__ - INFO - 🎉 Analysis completed successfully!
+2025-11-17 22:13:50,701 - __main__ - INFO - 🎬 Initializing AI Analysis System...
+2025-11-17 22:13:51,786 - src.llm.cache - INFO - LLMCache initialized at .cache\llm
+2025-11-17 22:13:51,787 - src.llm.providers - INFO - OpenAIProvider initialized with model gpt-4o-mini
+2025-11-17 22:13:51,787 - __main__ - INFO - ✅ OpenAI provider initialized successfully
+2025-11-17 22:13:51,841 - __main__ - INFO - ✅ Gemini provider initialized successfully
+2025-11-17 22:13:51,841 - __main__ - INFO - 🔍 Running customer feedback analysis...
+2025-11-17 22:13:51,841 - __main__ - INFO - 🚀 Starting customer feedback analysis workflow...
+2025-11-17 22:13:51,842 - src.agents.workflow - INFO - WorkflowNodes initialized with LLM: gpt-4o-mini
+2025-11-17 22:13:52,179 - __main__ - ERROR - ❌ Analysis failed: 'WorkflowNodes' object has no attribute 'stats_tool'
+2025-11-17 22:13:52,180 - __main__ - INFO - 📁 Results saved to results\analysis_results_20251117_221352.json
+2025-11-17 22:13:52,180 - __main__ - INFO - 🎉 Analysis completed successfully!
+2025-11-17 22:18:17,955 - __main__ - INFO - 🎬 Initializing AI Analysis System...
+2025-11-17 22:18:18,848 - src.llm.cache - INFO - LLMCache initialized at .cache\llm
+2025-11-17 22:18:18,849 - src.llm.providers - INFO - OpenAIProvider initialized with model gpt-4o-mini
+2025-11-17 22:18:18,849 - __main__ - INFO - ✅ OpenAI provider initialized successfully
+2025-11-17 22:18:18,862 - __main__ - INFO - ✅ Gemini provider initialized successfully
+2025-11-17 22:18:18,862 - __main__ - INFO - 🔍 Running customer feedback analysis...
+2025-11-17 22:18:18,863 - __main__ - INFO - 🚀 Starting customer feedback analysis workflow...
+2025-11-17 22:18:18,863 - src.agents.workflow - INFO - WorkflowNodes initialized with LLM: gpt-4o-mini
+2025-11-17 22:18:18,927 - src.agents.core - INFO - Loaded 259 customer comments for analysis
+2025-11-17 22:18:19,202 - __main__ - ERROR - ❌ Analysis failed: Prompt missing required variables: {'tool_names', 'agent_scratchpad'}
+2025-11-17 22:18:19,203 - __main__ - INFO - 📁 Results saved to results\analysis_results_20251117_221819.json
+2025-11-17 22:18:19,203 - __main__ - INFO - 🎉 Analysis completed successfully!
+2025-11-17 22:22:30,485 - __main__ - INFO - 🎬 Initializing AI Analysis System...
+2025-11-17 22:22:31,378 - src.llm.cache - INFO - LLMCache initialized at .cache\llm
+2025-11-17 22:22:31,378 - src.llm.providers - INFO - OpenAIProvider initialized with model gpt-4o-mini
+2025-11-17 22:22:31,378 - __main__ - INFO - ✅ OpenAI provider initialized successfully
+2025-11-17 22:22:31,392 - __main__ - INFO - ✅ Gemini provider initialized successfully
+2025-11-17 22:22:31,392 - __main__ - INFO - 🔍 Running customer feedback analysis...
+2025-11-17 22:22:31,392 - __main__ - INFO - 🚀 Starting customer feedback analysis workflow...
+2025-11-17 22:22:31,392 - src.agents.workflow - INFO - WorkflowNodes initialized with LLM: gpt-4o-mini
+2025-11-17 22:22:31,424 - src.agents.core - INFO - Loaded 259 customer comments for analysis
+2025-11-17 22:22:31,703 - src.agents.core - INFO - React Agent created successfully
+2025-11-17 22:22:31,703 - __main__ - INFO - 🛠️  Available analysis tools:
+2025-11-17 22:22:31,703 - __main__ - INFO -    - calculate_data_stats: Calculate statistical metrics on customer comments...
+2025-11-17 22:22:31,704 - __main__ - INFO -    - aggregate_sentiment: Aggregate sentiment analysis results...
+2025-11-17 22:22:31,704 - __main__ - INFO -    - generate_insights: Generate actionable business insights...
+2025-11-17 22:22:31,704 - src.agents.core - INFO - Starting analysis workflow...
+2025-11-17 22:22:31,704 - src.agents.core - ERROR - Error in analysis workflow: create_initial_state() got an unexpected keyword argument 'data'
+2025-11-17 22:22:31,704 - __main__ - INFO - ✅ Analysis completed in 0.00 seconds
+2025-11-17 22:22:31,705 - __main__ - INFO - 📁 Results saved to results\analysis_results_20251117_222231.json
+2025-11-17 22:22:31,705 - __main__ - INFO - 🎉 Analysis completed successfully!
+2025-11-17 22:28:00,124 - __main__ - INFO - 🎬 Initializing AI Analysis System...
+2025-11-17 22:28:01,031 - src.llm.cache - INFO - LLMCache initialized at .cache\llm
+2025-11-17 22:28:01,032 - src.llm.providers - INFO - OpenAIProvider initialized with model gpt-4o-mini
+2025-11-17 22:28:01,032 - __main__ - INFO - ✅ OpenAI provider initialized successfully
+2025-11-17 22:28:01,045 - __main__ - INFO - ✅ Gemini provider initialized successfully
+2025-11-17 22:28:01,045 - __main__ - INFO - 🔍 Running customer feedback analysis...
+2025-11-17 22:28:01,045 - __main__ - INFO - 🚀 Starting customer feedback analysis workflow...
+2025-11-17 22:28:01,045 - src.agents.workflow - INFO - WorkflowNodes initialized with LLM: gpt-4o-mini
+2025-11-17 22:28:01,076 - src.agents.core - INFO - Loaded 259 customer comments for analysis
+2025-11-17 22:28:01,356 - src.agents.core - INFO - React Agent created successfully
+2025-11-17 22:28:01,356 - __main__ - INFO - 🛠️  Available analysis tools:
+2025-11-17 22:28:01,357 - __main__ - INFO -    - calculate_data_stats: Calculate statistical metrics on customer comments...
+2025-11-17 22:28:01,357 - __main__ - INFO -    - aggregate_sentiment: Aggregate sentiment analysis results...
+2025-11-17 22:28:01,357 - __main__ - INFO -    - generate_insights: Generate actionable business insights...
+2025-11-17 22:28:01,357 - src.agents.core - INFO - Starting analysis workflow...
+2025-11-17 22:28:01,384 - src.agents.workflow - INFO -   Dados carregados: 259 registros
+2025-11-17 22:28:01,391 - src.agents.workflow - INFO -   Data summary: 259 records
+2025-11-17 22:28:01,393 - src.agents.workflow - INFO - Dados carregados: 259 registros
+2025-11-17 22:28:01,393 - src.agents.workflow - INFO - Prepared 10 sentiment analysis prompts
+2025-11-17 22:28:01,393 - src.agents.workflow - INFO - Calling LLM for sentiment analysis...
+2025-11-17 22:28:01,394 - src.agents.workflow - INFO -   Prepared 50 sentiment analysis prompts
+2025-11-17 22:28:01,394 - src.agents.workflow - INFO -   Calling LLM for sentiment analysis...
+2025-11-17 22:28:01,394 - src.llm.providers - INFO - Processing batch 1 with 5 items...
+2025-11-17 22:28:09,639 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-17 22:28:09,649 - src.llm.providers - INFO - Processing batch 2 with 5 items...
+2025-11-17 22:28:16,495 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-17 22:28:16,496 - src.llm.providers - INFO - Processing batch 3 with 5 items...
+2025-11-17 22:28:23,327 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-17 22:28:23,336 - src.llm.providers - INFO - Processing batch 4 with 5 items...
+2025-11-17 22:28:32,353 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-17 22:28:32,357 - src.llm.providers - INFO - Processing batch 5 with 5 items...
+2025-11-17 22:28:37,877 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-17 22:28:37,881 - src.llm.providers - INFO - Processing batch 6 with 5 items...
+2025-11-17 22:28:43,193 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-17 22:28:43,199 - src.llm.providers - INFO - Processing batch 7 with 5 items...
+2025-11-17 22:28:49,928 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-17 22:28:49,937 - src.llm.providers - INFO - Processing batch 8 with 5 items...
+2025-11-17 22:28:55,688 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-17 22:28:55,693 - src.llm.providers - INFO - Processing batch 9 with 5 items...
+2025-11-17 22:29:09,681 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-17 22:29:09,697 - src.llm.providers - INFO - Processing batch 10 with 5 items...
+2025-11-17 22:29:15,866 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-17 22:29:15,872 - src.llm.providers - INFO - Batch processing complete: 10 batches processed
+2025-11-17 22:29:15,872 - src.agents.workflow - INFO -   LLM returned 10 sentiment analyses
+2025-11-17 22:29:15,873 - src.agents.tools - ERROR - Error aggregating sentiment (summary): 'list' object has no attribute 'get'
+2025-11-17 22:29:15,873 - src.agents.workflow - INFO - Sentiment Analysis Complete
+2025-11-17 22:29:15,873 - src.agents.workflow - ERROR - Error in sentiment analysis: 'overall_sentiment'
+2025-11-17 22:29:15,874 - src.agents.workflow - INFO -   Calculating statistics...
+2025-11-17 22:29:15,886 - src.agents.workflow - INFO -   Statistics Calculated
+2025-11-17 22:29:15,886 - src.agents.workflow - INFO -      Total comments: 259
+2025-11-17 22:29:15,886 - src.agents.workflow - INFO -      Average length: 136.56 chars
+
+2025-11-17 22:29:15,887 - src.agents.workflow - INFO -   Prepared 50 topic extraction prompts
+2025-11-17 22:29:15,887 - src.agents.workflow - INFO -   Calling LLM for topic extraction...
+2025-11-17 22:29:15,887 - src.llm.providers - INFO - Processing batch 1 with 5 items...
+2025-11-17 22:29:27,674 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-17 22:29:27,675 - src.llm.providers - INFO - Processing batch 2 with 5 items...
+2025-11-17 22:29:34,564 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-17 22:29:34,567 - src.llm.providers - INFO - Processing batch 3 with 5 items...
+2025-11-17 22:29:40,725 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-17 22:29:40,729 - src.llm.providers - INFO - Processing batch 4 with 5 items...
+2025-11-17 22:29:47,482 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-17 22:29:47,491 - src.llm.providers - INFO - Processing batch 5 with 5 items...
+2025-11-17 22:29:49,524 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-17 22:29:49,530 - src.llm.providers - INFO - Processing batch 6 with 5 items...
+2025-11-17 22:29:53,886 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-17 22:29:53,896 - src.llm.providers - INFO - Processing batch 7 with 5 items...
+2025-11-17 22:30:00,168 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-17 22:30:00,187 - src.llm.providers - INFO - Processing batch 8 with 5 items...
+2025-11-17 22:30:05,174 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-17 22:30:05,183 - src.llm.providers - INFO - Processing batch 9 with 5 items...
+2025-11-17 22:30:10,458 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-17 22:30:10,465 - src.llm.providers - INFO - Processing batch 10 with 5 items...
+2025-11-17 22:30:15,573 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-17 22:30:15,578 - src.llm.providers - INFO - Batch processing complete: 10 batches processed
+2025-11-17 22:30:15,579 - src.agents.workflow - INFO -   LLM returned 10 topic analyses
+2025-11-17 22:30:15,579 - src.agents.workflow - WARNING -    Failed to parse topic JSON: 'list' object has no attribute 'get'
+2025-11-17 22:30:15,579 - src.agents.workflow - WARNING -    Failed to parse topic JSON: 'list' object has no attribute 'get'
+2025-11-17 22:30:15,579 - src.agents.workflow - WARNING -    Failed to parse topic JSON: 'list' object has no attribute 'get'
+2025-11-17 22:30:15,580 - src.agents.workflow - WARNING -    Failed to parse topic JSON: 'list' object has no attribute 'get'
+2025-11-17 22:30:15,580 - src.agents.workflow - WARNING -    Failed to parse topic JSON: 'list' object has no attribute 'get'
+2025-11-17 22:30:15,580 - src.agents.workflow - WARNING -    Failed to parse topic JSON: 'list' object has no attribute 'get'
+2025-11-17 22:30:15,580 - src.agents.workflow - WARNING -    Failed to parse topic JSON: 'list' object has no attribute 'get'
+2025-11-17 22:30:15,580 - src.agents.workflow - WARNING -    Failed to parse topic JSON: 'list' object has no attribute 'get'
+2025-11-17 22:30:15,580 - src.agents.workflow - WARNING -    Failed to parse topic JSON: 'list' object has no attribute 'get'
+2025-11-17 22:30:15,580 - src.agents.workflow - WARNING -    Failed to parse topic JSON: 'list' object has no attribute 'get'
+2025-11-17 22:30:15,581 - src.agents.workflow - INFO -   Topic Extraction Complete
+2025-11-17 22:30:15,581 - src.agents.workflow - INFO -      Main topics: 
+
+2025-11-17 22:30:15,581 - src.agents.workflow - INFO -   Generating insights using Python logic...
+2025-11-17 22:30:15,582 - src.agents.tools - INFO - Generating LLM-based report for insight_type='recommendations'...
+2025-11-17 22:30:32,378 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-17 22:30:32,393 - src.llm.providers - INFO - Response cached for future use
+2025-11-17 22:30:32,394 - src.agents.tools - INFO - Successfully generated insights from LLM.
+2025-11-17 22:30:32,394 - src.agents.workflow - INFO -   Relatório final gerado com sucesso!
+2025-11-17 22:30:32,394 - src.agents.workflow - INFO -      Modelo usado: gpt-4o-mini
+
+2025-11-17 22:30:32,394 - src.agents.core - INFO - Analysis completed successfully
+2025-11-17 22:30:32,395 - __main__ - INFO - ✅ Analysis completed in 151.04 seconds
+2025-11-17 22:30:32,396 - __main__ - INFO - 📁 Results saved to results\analysis_results_20251117_223032.json
+2025-11-17 22:30:32,398 - __main__ - INFO - 📄 Summary saved to results\summary_20251117_223032.txt
+2025-11-17 22:30:32,398 - __main__ - INFO - 🎉 Analysis completed successfully!
+2025-11-17 22:40:39,920 - __main__ - INFO - 🎬 Initializing AI Analysis System...
+2025-11-17 22:40:40,810 - src.llm.cache - INFO - LLMCache initialized at .cache\llm
+2025-11-17 22:40:40,811 - src.llm.providers - INFO - OpenAIProvider initialized with model gpt-4o-mini
+2025-11-17 22:40:40,811 - __main__ - INFO - ✅ OpenAI provider initialized successfully
+2025-11-17 22:40:40,825 - __main__ - INFO - ✅ Gemini provider initialized successfully
+2025-11-17 22:40:40,825 - __main__ - INFO - 🔍 Running customer feedback analysis...
+2025-11-17 22:40:40,825 - __main__ - INFO - 🚀 Starting customer feedback analysis workflow...
+2025-11-17 22:40:40,825 - src.agents.workflow - INFO - WorkflowNodes initialized with LLM: gpt-4o-mini
+2025-11-17 22:40:40,857 - src.agents.core - INFO - Loaded 259 customer comments for analysis
+2025-11-17 22:40:41,137 - src.agents.core - INFO - React Agent created successfully
+2025-11-17 22:40:41,137 - __main__ - INFO - 🛠️  Available analysis tools:
+2025-11-17 22:40:41,137 - __main__ - INFO -    - calculate_data_stats: Calculate statistical metrics on customer comments...
+2025-11-17 22:40:41,138 - __main__ - INFO -    - aggregate_sentiment: Aggregate sentiment analysis results...
+2025-11-17 22:40:41,138 - __main__ - INFO -    - generate_insights: Generate actionable business insights...
+2025-11-17 22:40:41,138 - src.agents.core - INFO - Starting analysis workflow...
+2025-11-17 22:40:41,165 - src.agents.workflow - INFO -   Dados carregados: 259 registros
+2025-11-17 22:40:41,166 - src.agents.workflow - INFO -   Data summary: 259 records
+2025-11-17 22:40:41,167 - src.agents.workflow - INFO - Analyzing sentiment of comments...
+2025-11-17 22:40:41,168 - src.llm.providers - INFO - Processing batch 1 with 5 items...
+2025-11-17 22:40:50,016 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-17 22:40:50,024 - src.llm.providers - INFO - Processing batch 2 with 5 items...
+2025-11-17 22:40:55,439 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-17 22:40:55,444 - src.llm.providers - INFO - Batch processing complete: 2 batches processed
+2025-11-17 22:40:55,444 - src.agents.workflow - WARNING - Could not parse sentiment response
+2025-11-17 22:40:55,444 - src.agents.workflow - WARNING - Could not parse sentiment response
+2025-11-17 22:40:55,444 - src.agents.workflow - INFO - Sentiment analysis complete: 0 positive, 0 negative, 2 neutral
+2025-11-17 22:40:55,445 - src.agents.workflow - INFO -   Calculating statistics...
+2025-11-17 22:40:55,448 - src.agents.workflow - INFO -   Statistics Calculated
+2025-11-17 22:40:55,448 - src.agents.workflow - INFO -      Total comments: 259
+2025-11-17 22:40:55,448 - src.agents.workflow - INFO -      Average length: 136.56 chars
+
+2025-11-17 22:40:55,448 - src.agents.workflow - INFO - Extracting topics from comments...
+2025-11-17 22:40:55,448 - src.llm.providers - INFO - Processing batch 1 with 5 items...
+2025-11-17 22:41:06,220 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-17 22:41:06,223 - src.llm.providers - INFO - Processing batch 2 with 5 items...
+2025-11-17 22:41:15,365 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-17 22:41:15,385 - src.llm.providers - INFO - Batch processing complete: 2 batches processed
+2025-11-17 22:41:15,385 - src.agents.workflow - WARNING - Could not parse topic response
+2025-11-17 22:41:15,385 - src.agents.workflow - WARNING - Could not parse topic response
+2025-11-17 22:41:15,386 - src.agents.workflow - INFO - Topics extracted: 0 total
+2025-11-17 22:41:15,386 - src.agents.workflow - INFO -   Generating insights using Python logic...
+2025-11-17 22:41:15,386 - src.agents.tools - INFO - Generating LLM-based report for insight_type='recommendations'...
+2025-11-17 22:41:27,202 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-17 22:41:27,208 - src.llm.providers - INFO - Response cached for future use
+2025-11-17 22:41:27,208 - src.agents.tools - INFO - Successfully generated insights from LLM.
+2025-11-17 22:41:27,208 - src.agents.workflow - INFO -   Relatório final gerado com sucesso!
+2025-11-17 22:41:27,208 - src.agents.workflow - INFO -      Modelo usado: gpt-4o-mini
+
+2025-11-17 22:41:27,209 - src.agents.core - INFO - Analysis completed successfully
+2025-11-17 22:41:27,209 - __main__ - INFO - ✅ Analysis completed in 46.07 seconds
+2025-11-17 22:41:27,210 - __main__ - INFO - 📁 Results saved to results\analysis_results_20251117_224127.json
+2025-11-17 22:41:27,211 - __main__ - INFO - 📄 Summary saved to results\summary_20251117_224127.txt
+2025-11-17 22:41:27,211 - __main__ - INFO - 🎉 Analysis completed successfully!
+2025-11-17 22:44:12,994 - __main__ - INFO - 🎬 Initializing AI Analysis System...
+2025-11-17 22:44:13,878 - src.llm.cache - INFO - LLMCache initialized at .cache\llm
+2025-11-17 22:44:13,879 - src.llm.providers - INFO - OpenAIProvider initialized with model gpt-4o-mini
+2025-11-17 22:44:13,879 - __main__ - INFO - ✅ OpenAI provider initialized successfully
+2025-11-17 22:44:13,892 - __main__ - INFO - ✅ Gemini provider initialized successfully
+2025-11-17 22:44:13,892 - __main__ - INFO - 🔍 Running customer feedback analysis...
+2025-11-17 22:44:13,892 - __main__ - INFO - 🚀 Starting customer feedback analysis workflow...
+2025-11-17 22:44:13,893 - src.agents.workflow - INFO - WorkflowNodes initialized with LLM: gpt-4o-mini
+2025-11-17 22:44:13,923 - src.agents.core - INFO - Loaded 259 customer comments for analysis
+2025-11-17 22:44:14,186 - src.agents.core - INFO - React Agent created successfully
+2025-11-17 22:44:14,186 - __main__ - INFO - 🛠️  Available analysis tools:
+2025-11-17 22:44:14,187 - __main__ - INFO -    - calculate_data_stats: Calculate statistical metrics on customer comments...
+2025-11-17 22:44:14,187 - __main__ - INFO -    - aggregate_sentiment: Aggregate sentiment analysis results...
+2025-11-17 22:44:14,187 - __main__ - INFO -    - generate_insights: Generate actionable business insights...
+2025-11-17 22:44:14,187 - src.agents.core - INFO - Starting analysis workflow...
+2025-11-17 22:44:14,214 - src.agents.workflow - INFO -   Dados carregados: 259 registros
+2025-11-17 22:44:14,215 - src.agents.workflow - INFO -   Data summary: 259 records
+2025-11-17 22:44:14,217 - src.agents.workflow - INFO - Analyzing sentiment of comments...
+2025-11-17 22:44:14,217 - src.llm.providers - INFO - Processing batch 1 with 5 items...
+2025-11-17 22:44:20,311 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-17 22:44:20,319 - src.llm.providers - INFO - Processing batch 2 with 5 items...
+2025-11-17 22:44:26,290 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-17 22:44:26,295 - src.llm.providers - INFO - Batch processing complete: 2 batches processed
+2025-11-17 22:44:26,295 - src.agents.workflow - WARNING - Could not parse sentiment response
+2025-11-17 22:44:26,295 - src.agents.workflow - WARNING - Could not parse sentiment response
+2025-11-17 22:44:26,295 - src.agents.workflow - INFO - Sentiment analysis complete: 0 positive, 0 negative, 2 neutral
+2025-11-17 22:44:26,296 - src.agents.workflow - INFO -   Calculating statistics...
+2025-11-17 22:44:26,298 - src.agents.workflow - INFO -   Statistics Calculated
+2025-11-17 22:44:26,298 - src.agents.workflow - INFO -      Total comments: 259
+2025-11-17 22:44:26,298 - src.agents.workflow - INFO -      Average length: 136.56 chars
+
+2025-11-17 22:44:26,299 - src.agents.workflow - INFO - Extracting topics from comments...
+2025-11-17 22:44:26,299 - src.llm.providers - INFO - Processing batch 1 with 5 items...
+2025-11-17 22:44:35,236 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-17 22:44:35,239 - src.llm.providers - INFO - Processing batch 2 with 5 items...
+2025-11-17 22:44:42,148 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-17 22:44:42,162 - src.llm.providers - INFO - Batch processing complete: 2 batches processed
+2025-11-17 22:44:42,162 - src.agents.workflow - WARNING - Could not parse topic response
+2025-11-17 22:44:42,162 - src.agents.workflow - WARNING - Could not parse topic response
+2025-11-17 22:44:42,163 - src.agents.workflow - INFO - Topics extracted: 0 total
+2025-11-17 22:44:42,163 - src.agents.workflow - INFO -   Generating insights using Python logic...
+2025-11-17 22:44:42,163 - src.agents.tools - INFO - Generating LLM-based report for insight_type='recommendations'...
+2025-11-17 22:44:42,174 - src.llm.providers - INFO - Cache HIT - API call avoided!
+2025-11-17 22:44:42,174 - src.agents.tools - INFO - Successfully generated insights from LLM.
+2025-11-17 22:44:42,174 - src.agents.workflow - INFO -   Relatório final gerado com sucesso!
+2025-11-17 22:44:42,174 - src.agents.workflow - INFO -      Modelo usado: gpt-4o-mini
+
+2025-11-17 22:44:42,175 - src.agents.core - INFO - Analysis completed successfully
+2025-11-17 22:44:42,175 - __main__ - INFO - ✅ Analysis completed in 27.99 seconds
+2025-11-17 22:44:42,176 - __main__ - INFO - 📁 Results saved to results\analysis_results_20251117_224442.json
+2025-11-17 22:44:42,177 - __main__ - INFO - 📄 Summary saved to results\summary_20251117_224442.txt
+2025-11-17 22:44:42,177 - __main__ - INFO - 🎉 Analysis completed successfully!
+2025-11-17 23:44:49,382 - __main__ - INFO - 🎬 Initializing AI Analysis System...
+2025-11-17 23:44:50,601 - src.llm.cache - INFO - LLMCache initialized at .cache\llm
+2025-11-17 23:44:50,601 - src.llm.providers - INFO - OpenAIProvider initialized with model gpt-4o-mini
+2025-11-17 23:44:50,601 - __main__ - INFO - ✅ OpenAI provider initialized successfully
+2025-11-17 23:44:50,657 - __main__ - INFO - ✅ Gemini provider initialized successfully
+2025-11-17 23:44:50,657 - __main__ - INFO - 🔍 Running customer feedback analysis...
+2025-11-17 23:44:50,658 - __main__ - INFO - 🚀 Starting customer feedback analysis workflow...
+2025-11-17 23:44:50,658 - src.agents.workflow - INFO - WorkflowNodes initialized with LLM: gpt-4o-mini
+2025-11-17 23:44:50,697 - src.agents.core - INFO - Loaded 259 customer comments for analysis
+2025-11-17 23:44:51,018 - src.agents.core - WARNING - MockLLMProvider detected. Skipping ReAct agent creation for testing.
+2025-11-17 23:44:51,018 - __main__ - INFO - 🛠️  Available analysis tools:
+2025-11-17 23:44:51,019 - __main__ - INFO -    - calculate_data_stats: Calculate statistical metrics on customer comments...
+2025-11-17 23:44:51,019 - __main__ - INFO -    - aggregate_sentiment: Aggregate sentiment analysis results...
+2025-11-17 23:44:51,019 - __main__ - INFO -    - generate_insights: Generate actionable business insights...
+2025-11-17 23:44:51,019 - src.agents.core - INFO - Starting analysis workflow...
+2025-11-17 23:44:51,055 - src.agents.workflow - INFO -   Dados carregados: 259 registros
+2025-11-17 23:44:51,058 - src.agents.workflow - INFO -   Data summary: 259 records
+2025-11-17 23:44:51,060 - src.agents.workflow - INFO - Analyzing sentiment of comments...
+2025-11-17 23:44:51,061 - src.llm.providers - INFO - Processing batch 1 with 5 items...
+2025-11-17 23:45:00,427 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-17 23:45:00,445 - src.llm.providers - INFO - Processing batch 2 with 5 items...
+2025-11-17 23:45:07,943 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-17 23:45:07,948 - src.llm.providers - INFO - Batch processing complete: 2 batches processed
+2025-11-17 23:45:07,948 - src.agents.workflow - WARNING - Could not parse sentiment response
+2025-11-17 23:45:07,948 - src.agents.workflow - WARNING - Could not parse sentiment response
+2025-11-17 23:45:07,949 - src.agents.workflow - INFO - Sentiment analysis complete: 0 positive, 0 negative, 2 neutral
+2025-11-17 23:45:07,949 - src.agents.workflow - INFO -   Calculating statistics...
+2025-11-17 23:45:07,954 - src.agents.workflow - INFO -   Statistics Calculated
+2025-11-17 23:45:07,955 - src.agents.workflow - INFO -      Total comments: 259
+2025-11-17 23:45:07,955 - src.agents.workflow - INFO -      Average length: 136.56 chars
+
+2025-11-17 23:45:07,956 - src.agents.workflow - INFO - Extracting topics from comments...
+2025-11-17 23:45:07,956 - src.llm.providers - INFO - Processing batch 1 with 5 items...
+2025-11-17 23:45:16,050 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-17 23:45:16,051 - src.llm.providers - INFO - Processing batch 2 with 5 items...
+2025-11-17 23:45:23,887 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-17 23:45:23,891 - src.llm.providers - INFO - Batch processing complete: 2 batches processed
+2025-11-17 23:45:23,892 - src.agents.workflow - WARNING - Could not parse topic response
+2025-11-17 23:45:23,892 - src.agents.workflow - WARNING - Could not parse topic response
+2025-11-17 23:45:23,892 - src.agents.workflow - INFO - Topics extracted: 0 total
+2025-11-17 23:45:23,893 - src.agents.workflow - INFO -   Generating insights using Python logic...
+2025-11-17 23:45:23,893 - src.agents.tools - INFO - Generating LLM-based report for insight_type='recommendations'...
+2025-11-17 23:45:35,769 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-17 23:45:35,788 - src.llm.providers - INFO - Response cached for future use
+2025-11-17 23:45:35,789 - src.agents.tools - INFO - Successfully generated insights from LLM.
+2025-11-17 23:45:35,789 - src.agents.workflow - INFO -   Relatório final gerado com sucesso!
+2025-11-17 23:45:35,789 - src.agents.workflow - INFO -      Modelo usado: gpt-4o-mini
+
+2025-11-17 23:45:35,790 - src.agents.core - INFO - Analysis completed successfully
+2025-11-17 23:45:35,790 - __main__ - INFO - ✅ Analysis completed in 44.77 seconds
+2025-11-17 23:45:35,790 - __main__ - INFO -  Skipping save (use --save-results to save)
+2025-11-17 23:45:35,791 - __main__ - INFO - 🎉 Analysis completed successfully!

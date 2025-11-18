@@ -9,31 +9,32 @@ from typing import Dict, Any, Optional, TypedDict, List
 from langchain_core.messages import BaseMessage
 
 
-class AgentState(TypedDict):
+class AgentState(TypedDict, total=False):
     """State structure for LangGraph agents with tool calling support."""
-    data: Optional[Any]
-    analysis_results: Dict[str, Any]
+    data: Any
     current_step: str
-    messages: List[BaseMessage]
-    tool_calls_made: List[str]
-    error: Optional[str]
+    analysis_results: Dict[str, Any]
+    errors: List[str]
+    sentiment_analysis: Dict[str, Any]
+    raw_sentiments: List[Any]
+    topic_extraction: Dict[str, Any]
 
 
 def create_initial_state() -> AgentState:
     """Create an initial state for the agent workflow."""
-    return AgentState(
-        data=None,
-        analysis_results={},
-        current_step="starting",
-        messages=[],
-        tool_calls_made=[],
-        error=None
-    )
-
+    return {
+        "data": None,
+        "analysis_results": {},
+        "current_step": "starting",
+        "errors": [],
+        "sentiment_analysis": {},
+        "raw_sentiments": [],
+        "topic_extraction": {}
+    }
 
 def update_state_with_error(state: AgentState, error: str, step: str = None) -> AgentState:
     """Update state with error information."""
-    state["error"] = error
+    state["errors"] = state.get("errors", []) + [error]
     if step:
         state["current_step"] = f"error_in_{step}"
     return state
@@ -41,4 +42,4 @@ def update_state_with_error(state: AgentState, error: str, step: str = None) -> 
 
 def is_state_valid(state: AgentState) -> bool:
     """Check if the state is valid for processing."""
-    return state.get("error") is None and state.get("data") is not None
+    return len(state.get("errors", [])) == 0 and state.get("data") is not None
