@@ -1117,3 +1117,429 @@ Please retry in 16.390938177s. [links {
 2025-11-17 23:45:35,790 - __main__ - INFO - ✅ Analysis completed in 44.77 seconds
 2025-11-17 23:45:35,790 - __main__ - INFO -  Skipping save (use --save-results to save)
 2025-11-17 23:45:35,791 - __main__ - INFO - 🎉 Analysis completed successfully!
+2025-11-18 13:05:50,691 - __main__ - INFO - 🎬 Initializing AI Analysis System...
+2025-11-18 13:05:51,766 - src.llm.cache - INFO - LLMCache initialized at .cache\llm
+2025-11-18 13:05:51,766 - src.llm.providers - INFO - OpenAIProvider initialized with model gpt-4o-mini
+2025-11-18 13:05:51,766 - __main__ - INFO - ✅ OpenAI provider initialized successfully
+2025-11-18 13:05:51,818 - __main__ - INFO - ✅ Gemini provider initialized successfully
+2025-11-18 13:05:51,819 - __main__ - INFO - 🔍 Running customer feedback analysis...
+2025-11-18 13:05:51,819 - __main__ - INFO - 🚀 Starting customer feedback analysis workflow...
+2025-11-18 13:05:51,819 - src.agents.workflow - INFO - WorkflowNodes initialized with LLM: gemini-2.5-flash-lite
+2025-11-18 13:05:51,885 - src.agents.core - INFO - Loaded 259 customer comments for analysis
+2025-11-18 13:05:52,200 - src.agents.core - WARNING - MockLLMProvider detected. Skipping ReAct agent creation for testing.
+2025-11-18 13:05:52,200 - __main__ - INFO - 🛠️  Available analysis tools:
+2025-11-18 13:05:52,200 - __main__ - INFO -    - calculate_data_stats: Calculate statistical metrics on customer comments...
+2025-11-18 13:05:52,200 - __main__ - INFO -    - aggregate_sentiment: Aggregate sentiment analysis results...
+2025-11-18 13:05:52,201 - __main__ - INFO -    - generate_insights: Generate actionable business insights...
+2025-11-18 13:05:52,201 - src.agents.core - INFO - Starting analysis workflow...
+2025-11-18 13:05:52,231 - src.agents.workflow - INFO -   Dados carregados: 259 registros
+2025-11-18 13:05:52,236 - src.agents.workflow - INFO -   Data summary: 259 records
+2025-11-18 13:05:52,237 - src.agents.workflow - INFO - Analyzing sentiment of comments...
+2025-11-18 13:05:52,882 - src.llm.providers - ERROR - Gemini API error: Invalid argument provided to Gemini: 400 API key expired. Please renew the API key. [reason: "API_KEY_INVALID"
+domain: "googleapis.com"
+metadata {
+  key: "service"
+  value: "generativelanguage.googleapis.com"
+}
+, locale: "en-US"
+message: "API key expired. Please renew the API key."
+]
+2025-11-18 13:05:52,883 - src.agents.workflow - ERROR - Error in sentiment analysis: Invalid argument provided to Gemini: 400 API key expired. Please renew the API key. [reason: "API_KEY_INVALID"
+domain: "googleapis.com"
+metadata {
+  key: "service"
+  value: "generativelanguage.googleapis.com"
+}
+, locale: "en-US"
+message: "API key expired. Please renew the API key."
+]
+2025-11-18 13:05:52,883 - src.agents.workflow - INFO -   Calculating statistics...
+2025-11-18 13:05:52,887 - src.agents.workflow - INFO -   Statistics Calculated
+2025-11-18 13:05:52,887 - src.agents.workflow - INFO -      Total comments: 259
+2025-11-18 13:05:52,887 - src.agents.workflow - INFO -      Average length: 136.56 chars
+
+2025-11-18 13:05:52,887 - src.agents.workflow - INFO - Extracting topics from comments...
+2025-11-18 13:05:53,545 - src.llm.providers - ERROR - Gemini API error: Invalid argument provided to Gemini: 400 API key expired. Please renew the API key. [reason: "API_KEY_INVALID"
+domain: "googleapis.com"
+metadata {
+  key: "service"
+  value: "generativelanguage.googleapis.com"
+}
+, locale: "en-US"
+message: "API key expired. Please renew the API key."
+]
+2025-11-18 13:05:53,545 - src.agents.workflow - ERROR - Error in topic extraction: Invalid argument provided to Gemini: 400 API key expired. Please renew the API key. [reason: "API_KEY_INVALID"
+domain: "googleapis.com"
+metadata {
+  key: "service"
+  value: "generativelanguage.googleapis.com"
+}
+, locale: "en-US"
+message: "API key expired. Please renew the API key."
+]
+2025-11-18 13:05:53,546 - src.agents.workflow - INFO -   Generating insights using Python logic...
+2025-11-18 13:05:53,546 - src.agents.tools - INFO - Generating LLM-based report for insight_type='recommendations'...
+2025-11-18 13:05:53,786 - src.llm.providers - ERROR - Gemini API error: Invalid argument provided to Gemini: 400 API key expired. Please renew the API key. [reason: "API_KEY_INVALID"
+domain: "googleapis.com"
+metadata {
+  key: "service"
+  value: "generativelanguage.googleapis.com"
+}
+, locale: "en-US"
+message: "API key expired. Please renew the API key."
+]
+2025-11-18 13:05:53,786 - src.agents.tools - ERROR - Error generating insights via LLM: Invalid argument provided to Gemini: 400 API key expired. Please renew the API key. [reason: "API_KEY_INVALID"
+domain: "googleapis.com"
+metadata {
+  key: "service"
+  value: "generativelanguage.googleapis.com"
+}
+, locale: "en-US"
+message: "API key expired. Please renew the API key."
+]
+2025-11-18 13:05:53,786 - src.agents.workflow - ERROR - Error generating final summary: Error generating insights: Invalid argument provided to Gemini: 400 API key expired. Please renew the API key. [reason: "API_KEY_INVALID"
+domain: "googleapis.com"
+metadata {
+  key: "service"
+  value: "generativelanguage.googleapis.com"
+}
+, locale: "en-US"
+message: "API key expired. Please renew the API key."
+]
+2025-11-18 13:05:53,787 - src.agents.core - INFO - Analysis completed successfully
+2025-11-18 13:05:53,787 - __main__ - INFO - ✅ Analysis completed in 1.59 seconds
+2025-11-18 13:05:53,787 - __main__ - INFO -  Skipping save (use --save-results to save)
+2025-11-18 13:05:53,787 - __main__ - INFO - 🎉 Analysis completed successfully!
+2025-11-18 13:12:57,811 - __main__ - INFO - 🎬 Initializing AI Analysis System...
+2025-11-18 13:12:58,723 - src.llm.cache - INFO - LLMCache initialized at .cache\llm
+2025-11-18 13:12:58,723 - src.llm.providers - INFO - OpenAIProvider initialized with model gpt-4o-mini
+2025-11-18 13:12:58,723 - __main__ - INFO - ✅ OpenAI provider initialized successfully
+2025-11-18 13:12:58,738 - __main__ - INFO - ✅ Gemini provider initialized successfully
+2025-11-18 13:12:58,739 - __main__ - INFO - 🔍 Running customer feedback analysis...
+2025-11-18 13:12:58,739 - __main__ - INFO - 🚀 Starting customer feedback analysis workflow...
+2025-11-18 13:12:58,739 - __main__ - INFO -  Using SAMPLE DATA for analysis...
+2025-11-18 13:12:58,807 - src.agents.workflow - INFO - WorkflowNodes initialized with LLM: gemini-2.5-flash-lite
+2025-11-18 13:12:58,809 - src.agents.core - INFO - Loaded 500 customer comments for analysis
+2025-11-18 13:12:59,081 - src.agents.core - WARNING - MockLLMProvider detected. Skipping ReAct agent creation for testing.
+2025-11-18 13:12:59,081 - __main__ - INFO - 🛠️  Available analysis tools:
+2025-11-18 13:12:59,082 - __main__ - INFO -    - calculate_data_stats: Calculate statistical metrics on customer comments...
+2025-11-18 13:12:59,082 - __main__ - INFO -    - aggregate_sentiment: Aggregate sentiment analysis results...
+2025-11-18 13:12:59,082 - __main__ - INFO -    - generate_insights: Generate actionable business insights...
+2025-11-18 13:12:59,082 - src.agents.core - INFO - Starting analysis workflow...
+2025-11-18 13:12:59,112 - src.agents.workflow - INFO -   Dados carregados: 259 registros
+2025-11-18 13:12:59,115 - src.agents.workflow - INFO -   Data summary: 259 records
+2025-11-18 13:12:59,116 - src.agents.workflow - INFO - Analyzing sentiment of comments...
+2025-11-18 13:12:59,693 - src.llm.providers - ERROR - Gemini API error: Invalid argument provided to Gemini: 400 API key expired. Please renew the API key. [reason: "API_KEY_INVALID"
+domain: "googleapis.com"
+metadata {
+  key: "service"
+  value: "generativelanguage.googleapis.com"
+}
+, locale: "en-US"
+message: "API key expired. Please renew the API key."
+]
+2025-11-18 13:12:59,693 - src.agents.workflow - ERROR - Error in sentiment analysis: Invalid argument provided to Gemini: 400 API key expired. Please renew the API key. [reason: "API_KEY_INVALID"
+domain: "googleapis.com"
+metadata {
+  key: "service"
+  value: "generativelanguage.googleapis.com"
+}
+, locale: "en-US"
+message: "API key expired. Please renew the API key."
+]
+2025-11-18 13:12:59,694 - src.agents.workflow - INFO -   Calculating statistics...
+2025-11-18 13:12:59,697 - src.agents.workflow - INFO -   Statistics Calculated
+2025-11-18 13:12:59,697 - src.agents.workflow - INFO -      Total comments: 259
+2025-11-18 13:12:59,697 - src.agents.workflow - INFO -      Average length: 136.56 chars
+
+2025-11-18 13:12:59,697 - src.agents.workflow - INFO - Extracting topics from comments...
+2025-11-18 13:13:00,369 - src.llm.providers - ERROR - Gemini API error: Invalid argument provided to Gemini: 400 API key expired. Please renew the API key. [reason: "API_KEY_INVALID"
+domain: "googleapis.com"
+metadata {
+  key: "service"
+  value: "generativelanguage.googleapis.com"
+}
+, locale: "en-US"
+message: "API key expired. Please renew the API key."
+]
+2025-11-18 13:13:00,369 - src.agents.workflow - ERROR - Error in topic extraction: Invalid argument provided to Gemini: 400 API key expired. Please renew the API key. [reason: "API_KEY_INVALID"
+domain: "googleapis.com"
+metadata {
+  key: "service"
+  value: "generativelanguage.googleapis.com"
+}
+, locale: "en-US"
+message: "API key expired. Please renew the API key."
+]
+2025-11-18 13:13:00,370 - src.agents.workflow - INFO -   Generating insights using Python logic...
+2025-11-18 13:13:00,370 - src.agents.tools - INFO - Generating LLM-based report for insight_type='recommendations'...
+2025-11-18 13:13:00,585 - src.llm.providers - ERROR - Gemini API error: Invalid argument provided to Gemini: 400 API key expired. Please renew the API key. [reason: "API_KEY_INVALID"
+domain: "googleapis.com"
+metadata {
+  key: "service"
+  value: "generativelanguage.googleapis.com"
+}
+, locale: "en-US"
+message: "API key expired. Please renew the API key."
+]
+2025-11-18 13:13:00,585 - src.agents.tools - ERROR - Error generating insights via LLM: Invalid argument provided to Gemini: 400 API key expired. Please renew the API key. [reason: "API_KEY_INVALID"
+domain: "googleapis.com"
+metadata {
+  key: "service"
+  value: "generativelanguage.googleapis.com"
+}
+, locale: "en-US"
+message: "API key expired. Please renew the API key."
+]
+2025-11-18 13:13:00,585 - src.agents.workflow - ERROR - Error generating final summary: Error generating insights: Invalid argument provided to Gemini: 400 API key expired. Please renew the API key. [reason: "API_KEY_INVALID"
+domain: "googleapis.com"
+metadata {
+  key: "service"
+  value: "generativelanguage.googleapis.com"
+}
+, locale: "en-US"
+message: "API key expired. Please renew the API key."
+]
+2025-11-18 13:13:00,586 - src.agents.core - INFO - Analysis completed successfully
+2025-11-18 13:13:00,586 - __main__ - INFO - ✅ Analysis completed in 1.50 seconds
+2025-11-18 13:13:00,587 - __main__ - INFO - 📁 Results saved to results_gemini\analysis_results_20251118_131300.json
+2025-11-18 13:13:00,588 - __main__ - INFO - 🎉 Analysis completed successfully!
+2025-11-18 13:20:55,922 - __main__ - INFO - 🎬 Initializing AI Analysis System...
+2025-11-18 13:20:57,164 - src.llm.cache - INFO - LLMCache initialized at .cache\llm
+2025-11-18 13:20:57,164 - src.llm.providers - INFO - OpenAIProvider initialized with model gpt-4o-mini
+2025-11-18 13:20:57,165 - __main__ - INFO - ✅ OpenAI provider initialized successfully
+2025-11-18 13:20:57,219 - __main__ - INFO - ✅ Gemini provider initialized successfully
+2025-11-18 13:20:57,219 - __main__ - INFO - 🔍 Running customer feedback analysis...
+2025-11-18 13:20:57,219 - __main__ - INFO - 🚀 Starting customer feedback analysis workflow...
+2025-11-18 13:20:57,219 - __main__ - INFO -  Using SAMPLE DATA for analysis...
+2025-11-18 13:20:57,304 - src.agents.workflow - INFO - WorkflowNodes initialized with LLM: gemini-2.5-flash-lite
+2025-11-18 13:20:57,306 - src.agents.core - INFO - Loaded 500 customer comments for analysis
+2025-11-18 13:20:57,647 - src.agents.core - WARNING - MockLLMProvider detected. Skipping ReAct agent creation for testing.
+2025-11-18 13:20:57,647 - __main__ - INFO - 🛠️  Available analysis tools:
+2025-11-18 13:20:57,648 - __main__ - INFO -    - calculate_data_stats: Calculate statistical metrics on customer comments...
+2025-11-18 13:20:57,648 - __main__ - INFO -    - aggregate_sentiment: Aggregate sentiment analysis results...
+2025-11-18 13:20:57,648 - __main__ - INFO -    - generate_insights: Generate actionable business insights...
+2025-11-18 13:20:57,648 - src.agents.core - INFO - Starting analysis workflow...
+2025-11-18 13:20:57,702 - src.agents.workflow - INFO -   Dados carregados: 259 registros
+2025-11-18 13:20:57,705 - src.agents.workflow - INFO -   Data summary: 259 records
+2025-11-18 13:20:57,706 - src.agents.workflow - INFO - Analyzing sentiment of comments...
+2025-11-18 13:20:58,317 - src.llm.providers - ERROR - Gemini API error: Invalid argument provided to Gemini: 400 API key expired. Please renew the API key. [reason: "API_KEY_INVALID"
+domain: "googleapis.com"
+metadata {
+  key: "service"
+  value: "generativelanguage.googleapis.com"
+}
+, locale: "en-US"
+message: "API key expired. Please renew the API key."
+]
+2025-11-18 13:20:58,317 - src.agents.workflow - ERROR - Error in sentiment analysis: Invalid argument provided to Gemini: 400 API key expired. Please renew the API key. [reason: "API_KEY_INVALID"
+domain: "googleapis.com"
+metadata {
+  key: "service"
+  value: "generativelanguage.googleapis.com"
+}
+, locale: "en-US"
+message: "API key expired. Please renew the API key."
+]
+2025-11-18 13:20:58,318 - src.agents.workflow - INFO -   Calculating statistics...
+2025-11-18 13:20:58,322 - src.agents.workflow - INFO -   Statistics Calculated
+2025-11-18 13:20:58,322 - src.agents.workflow - INFO -      Total comments: 259
+2025-11-18 13:20:58,322 - src.agents.workflow - INFO -      Average length: 136.56 chars
+
+2025-11-18 13:20:58,323 - src.agents.workflow - INFO - Extracting topics from comments...
+2025-11-18 13:20:58,984 - src.llm.providers - ERROR - Gemini API error: Invalid argument provided to Gemini: 400 API key expired. Please renew the API key. [reason: "API_KEY_INVALID"
+domain: "googleapis.com"
+metadata {
+  key: "service"
+  value: "generativelanguage.googleapis.com"
+}
+, locale: "en-US"
+message: "API key expired. Please renew the API key."
+]
+2025-11-18 13:20:58,985 - src.agents.workflow - ERROR - Error in topic extraction: Invalid argument provided to Gemini: 400 API key expired. Please renew the API key. [reason: "API_KEY_INVALID"
+domain: "googleapis.com"
+metadata {
+  key: "service"
+  value: "generativelanguage.googleapis.com"
+}
+, locale: "en-US"
+message: "API key expired. Please renew the API key."
+]
+2025-11-18 13:20:58,985 - src.agents.workflow - INFO -   Generating insights using Python logic...
+2025-11-18 13:20:58,986 - src.agents.tools - INFO - Generating LLM-based report for insight_type='recommendations'...
+2025-11-18 13:20:59,233 - src.llm.providers - ERROR - Gemini API error: Invalid argument provided to Gemini: 400 API key expired. Please renew the API key. [reason: "API_KEY_INVALID"
+domain: "googleapis.com"
+metadata {
+  key: "service"
+  value: "generativelanguage.googleapis.com"
+}
+, locale: "en-US"
+message: "API key expired. Please renew the API key."
+]
+2025-11-18 13:20:59,233 - src.agents.tools - ERROR - Error generating insights via LLM: Invalid argument provided to Gemini: 400 API key expired. Please renew the API key. [reason: "API_KEY_INVALID"
+domain: "googleapis.com"
+metadata {
+  key: "service"
+  value: "generativelanguage.googleapis.com"
+}
+, locale: "en-US"
+message: "API key expired. Please renew the API key."
+]
+2025-11-18 13:20:59,233 - src.agents.workflow - ERROR - Error generating final summary: Error generating insights: Invalid argument provided to Gemini: 400 API key expired. Please renew the API key. [reason: "API_KEY_INVALID"
+domain: "googleapis.com"
+metadata {
+  key: "service"
+  value: "generativelanguage.googleapis.com"
+}
+, locale: "en-US"
+message: "API key expired. Please renew the API key."
+]
+2025-11-18 13:20:59,234 - src.agents.core - INFO - Analysis completed successfully
+2025-11-18 13:20:59,234 - __main__ - INFO - ✅ Analysis completed in 1.59 seconds
+2025-11-18 13:20:59,236 - __main__ - INFO - 📁 Results saved to results_gemini\analysis_results_20251118_132059.json
+2025-11-18 13:20:59,236 - __main__ - INFO - 🎉 Analysis completed successfully!
+2025-11-18 13:32:30,855 - __main__ - INFO - 🎬 Initializing AI Analysis System...
+2025-11-18 13:32:31,750 - src.llm.cache - INFO - LLMCache initialized at .cache\llm
+2025-11-18 13:32:31,750 - src.llm.providers - INFO - OpenAIProvider initialized with model gpt-4o-mini
+2025-11-18 13:32:31,750 - __main__ - INFO - ✅ OpenAI provider initialized successfully
+2025-11-18 13:32:31,765 - __main__ - INFO - ✅ Gemini provider initialized successfully
+2025-11-18 13:32:31,765 - __main__ - INFO - 🔍 Running customer feedback analysis...
+2025-11-18 13:32:31,765 - __main__ - INFO - 🚀 Starting customer feedback analysis workflow...
+2025-11-18 13:32:31,765 - src.agents.workflow - INFO - WorkflowNodes initialized with LLM: gemini-2.5-flash-lite
+2025-11-18 13:32:31,796 - src.agents.core - INFO - Loaded 259 customer comments for analysis
+2025-11-18 13:32:32,059 - src.agents.core - WARNING - MockLLMProvider detected. Skipping ReAct agent creation for testing.
+2025-11-18 13:32:32,059 - __main__ - INFO - 🛠️  Available analysis tools:
+2025-11-18 13:32:32,060 - __main__ - INFO -    - calculate_data_stats: Calculate statistical metrics on customer comments...
+2025-11-18 13:32:32,060 - __main__ - INFO -    - aggregate_sentiment: Aggregate sentiment analysis results...
+2025-11-18 13:32:32,060 - __main__ - INFO -    - generate_insights: Generate actionable business insights...
+2025-11-18 13:32:32,060 - src.agents.core - INFO - Starting analysis workflow...
+2025-11-18 13:32:32,087 - src.agents.workflow - INFO -   Dados carregados: 259 registros
+2025-11-18 13:32:32,090 - src.agents.workflow - INFO -   Data summary: 259 records
+2025-11-18 13:32:32,091 - src.agents.workflow - INFO - Analyzing sentiment of comments...
+2025-11-18 13:32:33,321 - src.llm.providers - ERROR - Gemini API error: Invalid argument provided to Gemini: 400 API key expired. Please renew the API key. [reason: "API_KEY_INVALID"
+domain: "googleapis.com"
+metadata {
+  key: "service"
+  value: "generativelanguage.googleapis.com"
+}
+, locale: "en-US"
+message: "API key expired. Please renew the API key."
+]
+2025-11-18 13:32:33,321 - src.agents.workflow - ERROR - Error in sentiment analysis: Invalid argument provided to Gemini: 400 API key expired. Please renew the API key. [reason: "API_KEY_INVALID"
+domain: "googleapis.com"
+metadata {
+  key: "service"
+  value: "generativelanguage.googleapis.com"
+}
+, locale: "en-US"
+message: "API key expired. Please renew the API key."
+]
+2025-11-18 13:32:33,322 - src.agents.workflow - INFO -   Calculating statistics...
+2025-11-18 13:32:33,325 - src.agents.workflow - INFO -   Statistics Calculated
+2025-11-18 13:32:33,325 - src.agents.workflow - INFO -      Total comments: 259
+2025-11-18 13:32:33,325 - src.agents.workflow - INFO -      Average length: 136.56 chars
+
+2025-11-18 13:32:33,326 - src.agents.workflow - INFO - Extracting topics from comments...
+2025-11-18 13:32:33,544 - src.llm.providers - ERROR - Gemini API error: Invalid argument provided to Gemini: 400 API key expired. Please renew the API key. [reason: "API_KEY_INVALID"
+domain: "googleapis.com"
+metadata {
+  key: "service"
+  value: "generativelanguage.googleapis.com"
+}
+, locale: "en-US"
+message: "API key expired. Please renew the API key."
+]
+2025-11-18 13:32:33,545 - src.agents.workflow - ERROR - Error in topic extraction: Invalid argument provided to Gemini: 400 API key expired. Please renew the API key. [reason: "API_KEY_INVALID"
+domain: "googleapis.com"
+metadata {
+  key: "service"
+  value: "generativelanguage.googleapis.com"
+}
+, locale: "en-US"
+message: "API key expired. Please renew the API key."
+]
+2025-11-18 13:32:33,545 - src.agents.workflow - INFO -   Generating insights using Python logic...
+2025-11-18 13:32:33,545 - src.agents.tools - INFO - Generating LLM-based report for insight_type='recommendations'...
+2025-11-18 13:32:34,204 - src.llm.providers - ERROR - Gemini API error: Invalid argument provided to Gemini: 400 API key expired. Please renew the API key. [reason: "API_KEY_INVALID"
+domain: "googleapis.com"
+metadata {
+  key: "service"
+  value: "generativelanguage.googleapis.com"
+}
+, locale: "en-US"
+message: "API key expired. Please renew the API key."
+]
+2025-11-18 13:32:34,205 - src.agents.tools - ERROR - Error generating insights via LLM: Invalid argument provided to Gemini: 400 API key expired. Please renew the API key. [reason: "API_KEY_INVALID"
+domain: "googleapis.com"
+metadata {
+  key: "service"
+  value: "generativelanguage.googleapis.com"
+}
+, locale: "en-US"
+message: "API key expired. Please renew the API key."
+]
+2025-11-18 13:32:34,205 - src.agents.workflow - ERROR - Error generating final summary: Error generating insights: Invalid argument provided to Gemini: 400 API key expired. Please renew the API key. [reason: "API_KEY_INVALID"
+domain: "googleapis.com"
+metadata {
+  key: "service"
+  value: "generativelanguage.googleapis.com"
+}
+, locale: "en-US"
+message: "API key expired. Please renew the API key."
+]
+2025-11-18 13:32:34,205 - src.agents.core - INFO - Analysis completed successfully
+2025-11-18 13:32:34,205 - __main__ - INFO - ✅ Analysis completed in 2.15 seconds
+2025-11-18 13:32:34,207 - __main__ - INFO - 📁 Results saved to results\analysis_results_20251118_133234.json
+2025-11-18 13:32:34,207 - __main__ - INFO - 🎉 Analysis completed successfully!
+2025-11-18 13:34:29,862 - __main__ - INFO - 🎬 Initializing AI Analysis System...
+2025-11-18 13:34:30,755 - src.llm.cache - INFO - LLMCache initialized at .cache\llm
+2025-11-18 13:34:30,755 - src.llm.providers - INFO - OpenAIProvider initialized with model gpt-4o-mini
+2025-11-18 13:34:30,755 - __main__ - INFO - ✅ OpenAI provider initialized successfully
+2025-11-18 13:34:30,770 - __main__ - INFO - ✅ Gemini provider initialized successfully
+2025-11-18 13:34:30,770 - __main__ - INFO - 🔍 Running customer feedback analysis...
+2025-11-18 13:34:30,770 - __main__ - INFO - 🚀 Starting customer feedback analysis workflow...
+2025-11-18 13:34:30,770 - src.agents.workflow - INFO - WorkflowNodes initialized with LLM: gpt-4o-mini
+2025-11-18 13:34:30,800 - src.agents.core - INFO - Loaded 259 customer comments for analysis
+2025-11-18 13:34:31,060 - src.agents.core - WARNING - MockLLMProvider detected. Skipping ReAct agent creation for testing.
+2025-11-18 13:34:31,060 - __main__ - INFO - 🛠️  Available analysis tools:
+2025-11-18 13:34:31,060 - __main__ - INFO -    - calculate_data_stats: Calculate statistical metrics on customer comments...
+2025-11-18 13:34:31,060 - __main__ - INFO -    - aggregate_sentiment: Aggregate sentiment analysis results...
+2025-11-18 13:34:31,061 - __main__ - INFO -    - generate_insights: Generate actionable business insights...
+2025-11-18 13:34:31,061 - src.agents.core - INFO - Starting analysis workflow...
+2025-11-18 13:34:31,087 - src.agents.workflow - INFO -   Dados carregados: 259 registros
+2025-11-18 13:34:31,089 - src.agents.workflow - INFO -   Data summary: 259 records
+2025-11-18 13:34:31,090 - src.agents.workflow - INFO - Analyzing sentiment of comments...
+2025-11-18 13:34:31,090 - src.llm.providers - INFO - Processing batch 1 with 5 items...
+2025-11-18 13:34:40,549 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-18 13:34:40,582 - src.llm.providers - INFO - Processing batch 2 with 5 items...
+2025-11-18 13:34:50,565 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-18 13:34:50,578 - src.llm.providers - INFO - Batch processing complete: 2 batches processed
+2025-11-18 13:34:50,578 - src.agents.workflow - WARNING - Could not parse sentiment response
+2025-11-18 13:34:50,578 - src.agents.workflow - WARNING - Could not parse sentiment response
+2025-11-18 13:34:50,578 - src.agents.workflow - INFO - Sentiment analysis complete: 0 positive, 0 negative, 2 neutral
+2025-11-18 13:34:50,579 - src.agents.workflow - INFO -   Calculating statistics...
+2025-11-18 13:34:50,581 - src.agents.workflow - INFO -   Statistics Calculated
+2025-11-18 13:34:50,581 - src.agents.workflow - INFO -      Total comments: 259
+2025-11-18 13:34:50,581 - src.agents.workflow - INFO -      Average length: 136.56 chars
+
+2025-11-18 13:34:50,582 - src.agents.workflow - INFO - Extracting topics from comments...
+2025-11-18 13:34:50,582 - src.llm.providers - INFO - Processing batch 1 with 5 items...
+2025-11-18 13:35:03,063 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-18 13:35:03,065 - src.llm.providers - INFO - Processing batch 2 with 5 items...
+2025-11-18 13:35:15,272 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-18 13:35:15,277 - src.llm.providers - INFO - Batch processing complete: 2 batches processed
+2025-11-18 13:35:15,277 - src.agents.workflow - WARNING - Could not parse topic response
+2025-11-18 13:35:15,277 - src.agents.workflow - WARNING - Could not parse topic response
+2025-11-18 13:35:15,278 - src.agents.workflow - INFO - Topics extracted: 0 total
+2025-11-18 13:35:15,278 - src.agents.workflow - INFO -   Generating insights using Python logic...
+2025-11-18 13:35:15,278 - src.agents.tools - INFO - Generating LLM-based report for insight_type='recommendations'...
+2025-11-18 13:35:15,292 - src.llm.providers - INFO - Cache HIT - API call avoided!
+2025-11-18 13:35:15,292 - src.agents.tools - INFO - Successfully generated insights from LLM.
+2025-11-18 13:35:15,293 - src.agents.workflow - INFO -   Relatório final gerado com sucesso!
+2025-11-18 13:35:15,293 - src.agents.workflow - INFO -      Modelo usado: gpt-4o-mini
+
+2025-11-18 13:35:15,293 - src.agents.core - INFO - Analysis completed successfully
+2025-11-18 13:35:15,293 - __main__ - INFO - ✅ Analysis completed in 44.23 seconds
+2025-11-18 13:35:15,295 - __main__ - INFO - 📁 Results saved to results\analysis_results_20251118_133515.json
+2025-11-18 13:35:15,296 - __main__ - INFO - 📄 Summary saved to results\summary_20251118_133515.txt
+2025-11-18 13:35:15,296 - __main__ - INFO - 🎉 Analysis completed successfully!

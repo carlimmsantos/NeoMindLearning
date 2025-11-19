@@ -5,8 +5,7 @@ This module defines the state structure and helper functions for managing
 agent state throughout the workflow.
 """
 
-from typing import Dict, Any, Optional, TypedDict, List
-from langchain_core.messages import BaseMessage
+from typing import Dict, Any, TypedDict, List
 
 
 class AgentState(TypedDict, total=False):

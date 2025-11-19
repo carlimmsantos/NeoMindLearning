@@ -1,0 +1,84 @@
+{
+  "analysis_results": {
+    "data_summary": {
+      "total_records": 259,
+      "categories": {
+        "Others": 168,
+        "Display": 32,
+        "Battery": 27,
+        "Camera": 26,
+        "Delivery": 6
+      },
+      "rating_distribution": {
+        "5.0": 144,
+        "4.0": 44,
+        "1.0": 42,
+        "3.0": 23,
+        "2.0": 6
+      },
+      "average_rating": 3.9343629343629343,
+      "comment_length_stats": {
+        "average": 136.56,
+        "median": 32.0,
+        "min": 2,
+        "max": 4577
+      },
+      "date_range": {
+        "start": "2018-09-15T00:00:00",
+        "end": "2018-10-02T00:00:00"
+      }
+    },
+    "statistics": {
+      "count": {
+        "count": 259,
+        "metric": "count",
+        "message": "Dataset contains 259 customer comments"
+      },
+      "avg_length": {
+        "avg_length": 136.56,
+        "median_length": 32.0,
+        "metric": "avg_length",
+        "message": "Average comment length is 136.56 characters"
+      },
+      "word_frequency": {
+        "word_frequency": {
+          "is": 217,
+          "the": 189,
+          "and": 155,
+          "good": 125,
+          "in": 122,
+          "this": 101,
+          "a": 96,
+          "i": 90,
+          "phone": 89,
+          "of": 85
+        },
+        "total_unique_words": 1585,
+        "metric": "word_frequency",
+        "message": "Top 10 most frequent words in customer comments"
+      },
+      "rating_distribution": {
+        "distribution": {
+          "1.0": 42,
+          "2.0": 6,
+          "3.0": 23,
+          "4.0": 44,
+          "5.0": 144
+        },
+        "metric": "rating_distribution",
+        "message": "Distribution of customer ratings"
+      }
+    }
+  },
+  "success": true,
+  "status": "completed",
+  "metadata": {
+    "analysis_time_seconds": 1.59,
+    "primary_llm": "gemini",
+    "available_providers": [
+      "openai",
+      "gemini"
+    ],
+    "timestamp": "2025-11-18 13:20:59"
+  }
+}

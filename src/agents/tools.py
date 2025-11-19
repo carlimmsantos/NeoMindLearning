@@ -6,7 +6,6 @@ customer feedback data.
 """
 
 import logging
-import json
 from typing import Dict, Any, Type, List, Optional
 from collections import Counter
 
@@ -16,7 +15,6 @@ from pydantic import BaseModel, Field, ConfigDict
 
 from ..prompts.templates import (
     SentimentAnalysisPrompts,
-    TopicExtractionPrompts,
     SummaryPrompts,
 )
 from ..llm.providers import BaseLLMProvider
@@ -79,7 +77,7 @@ class DataStatsTool(BaseTool):
             column: Column to analyze
 
         Returns:
-            Dict with statistical results
+            Dict with statistical results or error information
         """
         if self.current_data is None:
             return {"error": "No data available for analysis"}
@@ -110,6 +108,7 @@ class DataStatsTool(BaseTool):
                 if column not in self.current_data.columns:
                     return {"error": f"Column '{column}' not found in dataset"}
 
+                # Aggregate all text and extract word frequencies
                 all_text = " ".join(self.current_data[column].astype(str))
                 words = all_text.lower().split()
                 word_counts = Counter(words)
@@ -128,6 +127,7 @@ class DataStatsTool(BaseTool):
                 if "rating" not in self.current_data.columns:
                     return {"error": "Rating column not found in dataset"}
 
+                # Calculate rating distribution sorted by index
                 ratings = self.current_data["rating"].value_counts().sort_index()
 
                 return {
@@ -210,6 +210,7 @@ class SentimentAggregationTool(BaseTool):
         if not self.sentiment_results:
             return {"error": "No sentiment data available"}
 
+        # Count sentiment classifications
         positive_count = sum(
             1 for item in self.sentiment_results if item.get("sentiment") == "positive"
         )
@@ -225,9 +226,11 @@ class SentimentAggregationTool(BaseTool):
         if total == 0:
             return {"error": "No valid sentiment data"}
 
+        # Calculate average confidence across all classifications
         confidences = [item.get("confidence", 0) for item in self.sentiment_results]
         avg_confidence = sum(confidences) / len(confidences) if confidences else 0
 
+        # Determine overall sentiment polarity
         if positive_count > negative_count:
             overall = "positive"
         elif negative_count > positive_count:
@@ -235,16 +238,17 @@ class SentimentAggregationTool(BaseTool):
         else:
             overall = "neutral"
 
+        # Prepare feedback summary for LLM prompt
         feedback_summary = f"Analyzed {total} comments: {positive_count} positive, {negative_count} negative, {neutral_count} neutral"
         
         try:
-            # ✅ Format the prompt template
+            # Format prompt template for sentiment analysis
             formatted_prompt = SentimentAnalysisPrompts.BASIC_SENTIMENT.format(
                 feedback=feedback_summary
             )
-            logger.info(f"SentimentAggregationTool: Using BASIC_SENTIMENT template")
+            logger.info("SentimentAggregationTool: Using BASIC_SENTIMENT template")
             
-            # ✅ If LLM provider available, use it
+            # Invoke LLM if available for enhanced analysis
             if self.llm_provider:
                 logger.info("SentimentAggregationTool: Calling LLM for sentiment analysis...")
                 llm_response = self.llm_provider.generate(formatted_prompt)
@@ -288,6 +292,7 @@ class SentimentAggregationTool(BaseTool):
         if not self.sentiment_results:
             return {"error": "No sentiment data available"}
 
+        # Initialize distribution buckets
         distribution = {
             "high_confidence_positive": 0,
             "medium_confidence_positive": 0,
@@ -298,6 +303,7 @@ class SentimentAggregationTool(BaseTool):
             "neutral": 0,
         }
 
+        # Categorize each sentiment result by confidence level
         for item in self.sentiment_results:
             sentiment = item.get("sentiment", "neutral")
             confidence = item.get("confidence", 0)
@@ -331,6 +337,7 @@ class SentimentAggregationTool(BaseTool):
         if not self.sentiment_results:
             return {"error": "No sentiment data available"}
 
+        # Extract emotion keywords from sentiment results
         positive_words = []
         negative_words = []
 
@@ -340,9 +347,11 @@ class SentimentAggregationTool(BaseTool):
             elif item.get("sentiment") == "negative" and "key_emotions" in item:
                 negative_words.extend(item.get("key_emotions", []))
 
+        # Calculate frequency of emotional keywords
         pos_counter = Counter(positive_words) if positive_words else Counter()
         neg_counter = Counter(negative_words) if negative_words else Counter()
 
+        # Determine overall trend direction
         sentiment_summary = self._aggregate_summary()
         positive_pct = sentiment_summary.get("positive", {}).get("percentage", 0)
         negative_pct = sentiment_summary.get("negative", {}).get("percentage", 0)
@@ -371,6 +380,7 @@ class SentimentAggregationTool(BaseTool):
         """Async version of the tool."""
         return self._run(aggregation_type)
 
+
 class InsightGenerationTool(BaseTool):
     """
     Tool for generating business insights by calling an LLM
@@ -383,7 +393,6 @@ class InsightGenerationTool(BaseTool):
     key findings, and priority issues."""
     args_schema: Type[BaseModel] = InsightGenerationInput
     model_config = ConfigDict(arbitrary_types_allowed=True)
-
 
     analysis_results: Any = Field(default=None, exclude=True)
     llm_provider: Optional[BaseLLMProvider] = Field(default=None, exclude=True)
@@ -412,6 +421,7 @@ class InsightGenerationTool(BaseTool):
         if self.analysis_results is None:
             return {"error": "No analysis results available to generate insights"}
 
+        # Validate requested insight type
         if insight_type not in ["recommendations", "trends", "priorities"]:
             return {
                 "error": f"Unknown insight_type: '{insight_type}'. Try 'recommendations', 'trends', or 'priorities'"
@@ -420,19 +430,19 @@ class InsightGenerationTool(BaseTool):
         logger.info(f"Generating LLM-based report for insight_type='{insight_type}'...")
         
         try:
-
+            # Extract analysis components for prompt formatting
             data_summary = self.analysis_results.get("data_summary", {})
             sentiment_results = self.analysis_results.get("sentiment_analysis", {})
             topic_results = self.analysis_results.get("topic_extraction", {})
             
-
+            # Format prompt template with analysis results
             formatted_prompt = SummaryPrompts.FEEDBACK_SUMMARY.format(
                 data_summary=str(data_summary),
                 sentiment_results=str(sentiment_results),
                 topic_results=str(topic_results)
             )
             
-
+            # Invoke LLM for report generation
             response = self.llm_provider.generate(formatted_prompt)
             
             logger.info("Successfully generated insights from LLM.")

@@ -41,22 +41,31 @@ class DataAnalysisAgent:
         self.data_processor = data_processor
         self.llm_to_use = llm_to_use
 
+        # Retrieve the specified LLM provider instance
         self.llm_provider = llm_providers.get(self.llm_to_use)
 
+        # Initialize workflow nodes with LLM and data processing capabilities
         self.workflow_nodes = WorkflowNodes(
             data_processor=data_processor,
             llm_providers=llm_providers,
             llm_to_use=llm_to_use,
         )
 
+        # Obtain the LLM instance and configure tools and workflow
         self._llm = llm_providers[llm_to_use].get_llm()
         self._setup_tools()
         self.graph = self._create_workflow_graph()
         self._create_agent()
 
     def _setup_tools(self):
-        """Load data and configure tools."""
+        """
+        Load customer comment data and initialize tools with dataset.
+        
+        Attempts to load data from CSV or falls back to sample data if unavailable.
+        Propagates data to all workflow tools for consistent analysis.
+        """
         try:
+            # Check if data is already loaded, otherwise load from source
             if self.data_processor._data is None:
                 df = self.data_processor.load_customer_comments()
                 self.data_processor._data = df
@@ -78,9 +87,18 @@ class DataAnalysisAgent:
             raise
 
     def _create_workflow_graph(self):
-
+        """
+        Construct the LangGraph workflow defining the analysis pipeline.
+        
+        Establishes a linear execution flow through five sequential analysis stages:
+        load_data → analyze_sentiment → calculate_statistics → generate_insights → generate_final_summary
+        
+        Returns:
+            Compiled LangGraph representing the complete analysis workflow.
+        """
         workflow = StateGraph(AgentState)
 
+        # Register workflow nodes for each analysis stage
         workflow.add_node("load_data", self.workflow_nodes.load_data)
         workflow.add_node("analyze_sentiment", self.workflow_nodes.analyze_sentiment)
         workflow.add_node(
@@ -91,8 +109,10 @@ class DataAnalysisAgent:
             "generate_final_summary", self.workflow_nodes.generate_final_summary
         )
 
+        # Define entry point for workflow execution
         workflow.set_entry_point("load_data")
 
+        # Establish sequential edges connecting analysis stages
         workflow.add_edge("load_data", "analyze_sentiment")
         workflow.add_edge("analyze_sentiment", "calculate_statistics")
         workflow.add_edge("calculate_statistics", "generate_insights")
@@ -117,15 +137,18 @@ class DataAnalysisAgent:
             query: Optional specific question to analyze. If None, runs full analysis.
 
         Returns:
-            Dict containing all analysis results and final summary
+            Dictionary containing analysis results, status, and success indicators.
         """
         try:
             logger.info("Starting analysis workflow...")
             
+            # Initialize state with default values
             initial_state = create_initial_state()
 
+            # Inject loaded data into workflow state
             initial_state["data"] = self.data_processor._data
             
+            # Execute the compiled workflow graph
             final_state = self.graph.invoke(initial_state)
             
             logger.info("Analysis completed successfully")
@@ -136,7 +159,6 @@ class DataAnalysisAgent:
                 "status": "completed"
             }
         
-
         except Exception as e:
             logger.error(f"Error in analysis workflow: {e}")
             return {
@@ -148,10 +170,13 @@ class DataAnalysisAgent:
 
     def get_available_tools(self) -> list:
         """
-        Get list of available tools for debugging and inspection.
+        Retrieve metadata about available analysis tools.
+
+        Provides introspection capabilities for debugging and tool inspection.
+        Documents tool names, descriptions, and supported capabilities.
 
         Returns:
-            List of tool names and descriptions
+            List of dictionaries containing tool specifications and available metrics.
         """
         return [
             {
@@ -177,22 +202,33 @@ class DataAnalysisAgent:
         ]
 
     def _create_agent(self):
-        """Create the React Agent with tools."""
+        """
+        Initialize the React Agent with configured tools and prompt template.
+
+        Constructs a LangChain React Agent that automatically selects and executes
+        appropriate tools based on analysis requirements. Implements error handling
+        and iteration limits for robust execution.
+
+        Note: Skips agent creation when MockLLMProvider is detected for testing environments.
+        """
         from langchain.agents import create_react_agent, AgentExecutor
         from langchain_core.prompts import PromptTemplate
 
+        # Skip agent creation in testing environments with mock providers
         if not hasattr(self.llm_provider, 'invoke'):
             logger.warning("MockLLMProvider detected. Skipping ReAct agent creation for testing.")
             self.agent = None
             return        
 
         try:
+            # Aggregate all analysis tools for agent access
             tools = [
                 self.workflow_nodes.data_stats_tool,
                 self.workflow_nodes.sentiment_aggregation_tool,
                 self.workflow_nodes.insight_generation_tool,
             ]
 
+            # Define the React Agent prompt template with structured format
             prompt = PromptTemplate.from_template("""
             You are a customer feedback analysis expert. Your goal is to analyze customer comments data.
 
@@ -213,9 +249,11 @@ class DataAnalysisAgent:
             """)
             
 
+            # Create React Agent with LLM and tools
             agent = create_react_agent(llm=self._llm, tools=tools, prompt=prompt)
             
 
+            # Wrap agent with executor for robust execution and error handling
             self.agent_executor = AgentExecutor(
                 agent=agent,
                 tools=tools,
